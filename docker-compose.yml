@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  # Frontend Angular
+  webapp:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    restart: always
+
+  # Backend Mock (JSON Server)
+  api:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./mock-server:/app/mock-server
+      - ./package.json:/app/package.json
+      - ./package-lock.json:/app/package-lock.json
+    command: sh -c "npm install json-server json-server-auth --no-save && node mock-server/server.js"
+    ports:
+      - "3000:3000"
+    restart: always

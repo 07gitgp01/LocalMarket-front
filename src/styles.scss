@@ -1,0 +1,139 @@
+/* ==========================================================================
+   Global Styles - LocalMarket
+   ========================================================================== */
+
+/* 1. Configuration & Design Tokens */
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+@use 'styles/theme';
+@use 'styles/utilities';
+
+/* 2. Vendor Styles (Angular Material, PrimeNG) */
+@use '@angular/material' as mat;
+@import 'primeng/resources/themes/lara-light-blue/theme.css';
+@import 'primeng/resources/primeng.css';
+@import 'primeicons/primeicons.css';
+@import 'primeflex/primeflex.css';
+
+/* 3. Angular Material Theme (Using Default for now) */
+@include mat.core();
+
+// TODO: Customize Material theme with new M3 API
+// For now, using default Material theme
+@include mat.all-component-themes(mat.define-theme());
+
+/* 4. Base Styles (Unlayered) */
+:root {
+    // Map our mixin CSS vars to root
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background-color: var(--bg-body);
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure Material Icons render correctly */
+.material-icons,
+.mat-icon {
+    font-family: 'Material Icons' !important;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    font-feature-settings: 'liga';
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include heading-style;
+    margin-bottom: $spacing-md;
+}
+
+h1 {
+    font-size: $font-size-4xl;
+}
+
+h2 {
+    font-size: $font-size-3xl;
+}
+
+h3 {
+    font-size: $font-size-2xl;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: var(--primary-dark);
+    }
+}
+
+/* 6. Utility Imports (already imported at top) */
+
+/* 7. Components Overrides (Global) */
+// Material Button Override
+.mat-mdc-unelevated-button.mat-primary {
+    --mdc-filled-button-container-color: var(--primary);
+    --mdc-filled-button-label-text-color: #fff;
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #bbb;
+}
+
+/* 8. Layout Structures */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+
+    @include lg {
+        padding: 0 $spacing-xl;
+    }
+}
+
+.page-content {
+    min-height: calc(100vh - 400px); // approx footer + header height
+    padding-bottom: $spacing-3xl;
+}

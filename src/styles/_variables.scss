@@ -1,0 +1,118 @@
+/* ==========================================================================
+   Design Tokens & Variables
+   ========================================================================== */
+
+/* Colors Palette (LocalMarket Theme - Senegal Inspired) */
+$color-green-primary: #00853E;
+$color-green-light: #43A047;
+$color-green-dark: #00602B;
+
+$color-yellow-secondary: #FDEF42;
+$color-yellow-light: #FFF59D;
+$color-yellow-dark: #FBC02D;
+
+$color-red-accent: #E31010;
+$color-red-light: #EF5350;
+$color-red-dark: #C62828;
+
+/* Neutral Colors */
+$color-white: #FFFFFF;
+$color-black: #1A1A1A;
+$color-gray-50: #FAFAFA;
+$color-gray-100: #F5F5F5;
+$color-gray-200: #EEEEEE;
+$color-gray-300: #E0E0E0;
+$color-gray-400: #BDBDBD;
+$color-gray-500: #9E9E9E;
+$color-gray-600: #757575;
+$color-gray-700: #616161;
+$color-gray-800: #424242;
+$color-gray-900: #212121;
+
+/* Semantic Mapping */
+$primary: $color-green-primary;
+$secondary: $color-yellow-secondary;
+$accent: $color-red-accent;
+$success: #4CAF50;
+$warning: #FF9800;
+$error: #F44336;
+$info: #2196F3;
+
+/* Spacing System (8px grid) */
+$spacing-xs: 0.25rem;
+/* 4px */
+$spacing-sm: 0.5rem;
+/* 8px */
+$spacing-md: 1rem;
+/* 16px */
+$spacing-lg: 1.5rem;
+/* 24px */
+$spacing-xl: 2rem;
+/* 32px */
+$spacing-2xl: 3rem;
+/* 48px */
+$spacing-3xl: 4rem;
+/* 64px */
+
+/* Typography */
+$font-family-primary: 'Inter', system-ui, -apple-system, sans-serif;
+$font-family-heading: 'Outfit', 'Inter', sans-serif;
+
+$font-size-xs: 0.75rem;
+$font-size-sm: 0.875rem;
+$font-size-base: 1rem;
+$font-size-lg: 1.125rem;
+$font-size-xl: 1.25rem;
+$font-size-2xl: 1.5rem;
+$font-size-3xl: 2rem;
+$font-size-4xl: 2.5rem;
+
+/* Shadows */
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+/* Border Radius */
+$radius-sm: 0.25rem;
+$radius-md: 0.5rem;
+$radius-lg: 1rem;
+$radius-xl: 1.5rem;
+$radius-full: 9999px;
+
+/* Breakpoints */
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+
+/* CSS Custom Properties Export */
+:root {
+    --primary: #{$primary};
+    --primary-light: #{$color-green-light};
+    --primary-dark: #{$color-green-dark};
+
+    --secondary: #{$secondary};
+    --accent: #{$accent};
+
+    --bg-body: #{$color-gray-50};
+    --text-main: #{$color-gray-900};
+    --text-muted: #{$color-gray-600};
+
+    --font-heading: #{$font-family-heading};
+    --font-body: #{$font-family-primary};
+
+    --radius-md: #{$radius-md};
+    --radius-lg: #{$radius-lg};
+
+    --shadow-card: #{$shadow-md};
+}
+
+/* Dark Theme Variables */
+/* We can enable this by adding a class .dark-theme to body */
+.dark-theme {
+    --bg-body: #121212;
+    --text-main: #E0E0E0;
+    --text-muted: #A0A0A0;
+    // Redefine other colors for dark mode...
+}
