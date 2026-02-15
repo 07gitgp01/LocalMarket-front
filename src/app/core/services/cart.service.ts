@@ -118,6 +118,13 @@ export class CartService {
         }
     }
 
+    updateQuantityByProductId(productId: number, quantity: number): void {
+        const item = this.cartItemsSignal().find(i => i.productId === productId);
+        if (item) {
+            this.updateQuantity(item.id, quantity);
+        }
+    }
+
     clearCart(): void {
         if (this.auth.isAuthenticated()) {
             // Pour json-server, il faut supprimer un par un, en vrai backend en une fois

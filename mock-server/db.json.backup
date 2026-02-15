@@ -1,0 +1,1113 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Amidou",
+      "lastName": "Ouédraogo",
+      "role": "admin",
+      "phone": "+226 70 12 34 56",
+      "address": {
+        "street": "Avenue Kwame Nkrumah",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "01 BP 1234"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=1",
+      "status": "active",
+      "createdAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "email": "vendor1@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Fatoumata",
+      "lastName": "Compaoré",
+      "role": "vendor",
+      "phone": "+226 71 23 45 67",
+      "vendorId": 1,
+      "address": {
+        "street": "Marché Rood Woko",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "01 BP 2345"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=5",
+      "status": "active",
+      "createdAt": "2024-01-15T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "email": "vendor2@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Ablassé",
+      "lastName": "Sawadogo",
+      "role": "vendor",
+      "phone": "+226 72 34 56 78",
+      "vendorId": 2,
+      "address": {
+        "street": "Zone Artisanale",
+        "city": "Bobo-Dioulasso",
+        "region": "Hauts-Bassins",
+        "postalCode": "01 BP 3456"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=8",
+      "status": "active",
+      "createdAt": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "email": "client1@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Aminata",
+      "lastName": "Kaboré",
+      "role": "customer",
+      "phone": "+226 73 45 67 89",
+      "address": {
+        "street": "Secteur 15",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "01 BP 4567"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=10",
+      "status": "active",
+      "createdAt": "2024-02-15T00:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "email": "client2@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Boureima",
+      "lastName": "Traoré",
+      "role": "customer",
+      "phone": "+226 74 56 78 90",
+      "address": {
+        "street": "Avenue de l'Indépendance",
+        "city": "Bobo-Dioulasso",
+        "region": "Hauts-Bassins",
+        "postalCode": "01 BP 5678"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=12",
+      "status": "active",
+      "createdAt": "2024-03-01T00:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "email": "vendor3@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Rasmata",
+      "lastName": "Sankara",
+      "role": "vendor",
+      "phone": "+226 75 67 89 01",
+      "vendorId": 3,
+      "address": {
+        "street": "Marché Central",
+        "city": "Koudougou",
+        "region": "Centre-Ouest",
+        "postalCode": "01 BP 6789"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=20",
+      "status": "active",
+      "createdAt": "2024-03-15T00:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "email": "client3@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Salif",
+      "lastName": "Yameogo",
+      "role": "customer",
+      "phone": "+226 76 78 90 12",
+      "address": {
+        "street": "Quartier Gounghin",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "01 BP 7890"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=15",
+      "status": "active",
+      "createdAt": "2024-04-01T00:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "email": "vendor4@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Mariame",
+      "lastName": "Zoungrana",
+      "role": "vendor",
+      "phone": "+226 77 89 01 23",
+      "vendorId": 4,
+      "address": {
+        "street": "Zone Commerciale",
+        "city": "Ouahigouya",
+        "region": "Nord",
+        "postalCode": "01 BP 8901"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=25",
+      "status": "active",
+      "createdAt": "2024-04-15T00:00:00.000Z"
+    },
+    {
+      "id": 9,
+      "email": "client4@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Issa",
+      "lastName": "Ouattara",
+      "role": "customer",
+      "phone": "+226 78 90 12 34",
+      "address": {
+        "street": "Secteur 30",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "01 BP 9012"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=18",
+      "status": "active",
+      "createdAt": "2024-05-01T00:00:00.000Z"
+    },
+    {
+      "id": 10,
+      "email": "client5@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Hawa",
+      "lastName": "Diallo",
+      "role": "customer",
+      "phone": "+226 79 01 23 45",
+      "address": {
+        "street": "Avenue Loudun",
+        "city": "Bobo-Dioulasso",
+        "region": "Hauts-Bassins",
+        "postalCode": "01 BP 0123"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=22",
+      "status": "active",
+      "createdAt": "2024-05-15T00:00:00.000Z"
+    },
+    {
+      "id": 11,
+      "email": "admin@example.com",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "GUIGMA",
+      "lastName": "Moussa Paulin",
+      "role": "vendor",
+      "phone": "64095771",
+      "address": {
+        "street": "",
+        "city": "",
+        "region": "",
+        "postalCode": ""
+      },
+      "status": "active",
+      "createdAt": "2026-02-05T15:57:23.610Z"
+    }
+  ],
+  "regions": [
+    {
+      "id": 1,
+      "name": "Centre",
+      "capital": "Ouagadougou",
+      "population": 2415266,
+      "area": 2805,
+      "provinces": [
+        "Kadiogo"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Hauts-Bassins",
+      "capital": "Bobo-Dioulasso",
+      "population": 1703668,
+      "area": 25575,
+      "provinces": [
+        "Houet",
+        "Kénédougou",
+        "Tuy"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Centre-Ouest",
+      "capital": "Koudougou",
+      "population": 1522910,
+      "area": 21691,
+      "provinces": [
+        "Boulkiemdé",
+        "Sanguié",
+        "Sissili",
+        "Ziro"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Nord",
+      "capital": "Ouahigouya",
+      "population": 1385107,
+      "area": 17958,
+      "provinces": [
+        "Loroum",
+        "Passoré",
+        "Yatenga",
+        "Zondoma"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Est",
+      "capital": "Fada N'Gourma",
+      "population": 1572206,
+      "area": 46707,
+      "provinces": [
+        "Gnagna",
+        "Gourma",
+        "Komandjoari",
+        "Kompienga",
+        "Tapoa"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Sud-Ouest",
+      "capital": "Gaoua",
+      "population": 741197,
+      "area": 16153,
+      "provinces": [
+        "Bougouriba",
+        "Ioba",
+        "Noumbiel",
+        "Poni"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Cascades",
+      "capital": "Banfora",
+      "population": 716561,
+      "area": 15415,
+      "provinces": [
+        "Comoé",
+        "Léraba"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Sahel",
+      "capital": "Dori",
+      "population": 1446570,
+      "area": 35820,
+      "provinces": [
+        "Oudalan",
+        "Séno",
+        "Soum",
+        "Yagha"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Plateau-Central",
+      "capital": "Ziniaré",
+      "population": 771606,
+      "area": 8575,
+      "provinces": [
+        "Ganzourgou",
+        "Kourwéogo",
+        "Oubritenga"
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Centre-Nord",
+      "capital": "Kaya",
+      "population": 1599354,
+      "area": 19508,
+      "provinces": [
+        "Bam",
+        "Namentenga",
+        "Sanmatenga"
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Céréales & Graines",
+      "slug": "cereales-graines",
+      "description": "Mil, sorgho, maïs, riz local et autres céréales",
+      "icon": "pi-sun",
+      "image": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400",
+      "productCount": 45,
+      "order": 1,
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "name": "Fruits & Légumes",
+      "slug": "fruits-legumes",
+      "description": "Produits frais de nos maraîchers",
+      "icon": "pi-shopping-bag",
+      "image": "https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=400",
+      "productCount": 67,
+      "order": 2,
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "name": "Artisanat",
+      "slug": "artisanat",
+      "description": "Objets d'art et artisanat burkinabé",
+      "icon": "pi-gift",
+      "image": "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=400",
+      "productCount": 89,
+      "order": 3,
+      "isActive": true
+    },
+    {
+      "id": 4,
+      "name": "Textile & Faso Dan Fani",
+      "slug": "textile-faso-dan-fani",
+      "description": "Tissus traditionnels et vêtements",
+      "icon": "pi-th-large",
+      "image": "https://images.unsplash.com/photo-1618453292507-4959ece6429e?w=400",
+      "productCount": 54,
+      "order": 4,
+      "isActive": true
+    },
+    {
+      "id": 5,
+      "name": "Karité & Produits Cosmétiques",
+      "slug": "karite-cosmetiques",
+      "description": "Beurre de karité et produits dérivés",
+      "icon": "pi-heart",
+      "image": "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400",
+      "productCount": 32,
+      "order": 5,
+      "isActive": true
+    },
+    {
+      "id": 6,
+      "name": "Épices & Condiments",
+      "slug": "epices-condiments",
+      "description": "Soumbala, piment, gingembre et autres épices",
+      "icon": "pi-star",
+      "image": "https://images.unsplash.com/photo-1596040033229-a0b4f8e27bc8?w=400",
+      "productCount": 28,
+      "order": 6,
+      "isActive": true
+    },
+    {
+      "id": 7,
+      "name": "Volaille & Œufs",
+      "slug": "volaille-oeufs",
+      "description": "Poulets bicyclette et œufs frais",
+      "icon": "pi-circle",
+      "image": "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=400",
+      "productCount": 18,
+      "order": 7,
+      "isActive": true
+    },
+    {
+      "id": 8,
+      "name": "Miel & Produits de la Ruche",
+      "slug": "miel-produits-ruche",
+      "description": "Miel naturel et produits apicoles",
+      "icon": "pi-globe",
+      "image": "https://images.unsplash.com/photo-1587049352846-4a222e784084?w=400",
+      "productCount": 15,
+      "order": 8,
+      "isActive": true
+    },
+    {
+      "id": 9,
+      "name": "Boissons Traditionnelles",
+      "slug": "boissons-traditionnelles",
+      "description": "Dolo, bissap, gingembre et jus locaux",
+      "icon": "pi-cup",
+      "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400",
+      "productCount": 22,
+      "order": 9,
+      "isActive": true
+    },
+    {
+      "id": 10,
+      "name": "Tubercules & Racines",
+      "slug": "tubercules-racines",
+      "description": "Ignames, patates douces, manioc",
+      "icon": "pi-bookmark",
+      "image": "https://images.unsplash.com/photo-1568584711271-3c08f2095e7c?w=400",
+      "productCount": 24,
+      "order": 10,
+      "isActive": true
+    }
+  ],
+  "vendors": [
+    {
+      "id": 1,
+      "userId": 2,
+      "shopName": "Coopérative Wend Panga",
+      "description": "Spécialiste des céréales locales du Burkina Faso",
+      "logo": "https://i.pravatar.cc/200?img=30",
+      "banner": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1200&h=300&fit=crop",
+      "category": "Céréales & Graines",
+      "rating": 4.8,
+      "reviewCount": 156,
+      "productCount": 28,
+      "verified": true,
+      "regionId": 1,
+      "location": {
+        "street": "Marché Rood Woko",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "coordinates": {
+          "lat": 12.3714,
+          "lng": -1.5197
+        }
+      },
+      "contact": {
+        "phone": "+226 71 23 45 67",
+        "email": "contact@wendpanga.bf",
+        "whatsapp": "+226 71 23 45 67"
+      },
+      "businessHours": {
+        "monday": "07:00-18:00",
+        "tuesday": "07:00-18:00",
+        "wednesday": "07:00-18:00",
+        "thursday": "07:00-18:00",
+        "friday": "07:00-18:00",
+        "saturday": "07:00-14:00",
+        "sunday": "Fermé"
+      },
+      "createdAt": "2024-01-15T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "shopName": "Artisanat de Bobo",
+      "description": "Artisanat authentique du pays des hommes intègres",
+      "logo": "https://i.pravatar.cc/200?img=31",
+      "banner": "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=1200&h=300&fit=crop",
+      "category": "Artisanat",
+      "rating": 4.9,
+      "reviewCount": 203,
+      "productCount": 45,
+      "verified": true,
+      "regionId": 2,
+      "location": {
+        "street": "Zone Artisanale",
+        "city": "Bobo-Dioulasso",
+        "region": "Hauts-Bassins",
+        "coordinates": {
+          "lat": 11.1781,
+          "lng": -4.2967
+        }
+      },
+      "contact": {
+        "phone": "+226 72 34 56 78",
+        "email": "contact@artisanatbobo.bf",
+        "whatsapp": "+226 72 34 56 78"
+      },
+      "businessHours": {
+        "monday": "08:00-19:00",
+        "tuesday": "08:00-19:00",
+        "wednesday": "08:00-19:00",
+        "thursday": "08:00-19:00",
+        "friday": "08:00-19:00",
+        "saturday": "08:00-19:00",
+        "sunday": "09:00-16:00"
+      },
+      "createdAt": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "userId": 6,
+      "shopName": "Karité d'Or",
+      "description": "Producteur de beurre de karité bio certifié",
+      "logo": "https://i.pravatar.cc/200?img=32",
+      "banner": "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=1200&h=300&fit=crop",
+      "category": "Karité & Produits Cosmétiques",
+      "rating": 4.7,
+      "reviewCount": 128,
+      "productCount": 18,
+      "verified": true,
+      "regionId": 3,
+      "location": {
+        "street": "Marché Central",
+        "city": "Koudougou",
+        "region": "Centre-Ouest",
+        "coordinates": {
+          "lat": 12.2529,
+          "lng": -2.3625
+        }
+      },
+      "contact": {
+        "phone": "+226 75 67 89 01",
+        "email": "contact@karitedor.bf",
+        "whatsapp": "+226 75 67 89 01"
+      },
+      "businessHours": {
+        "monday": "08:00-17:00",
+        "tuesday": "08:00-17:00",
+        "wednesday": "08:00-17:00",
+        "thursday": "08:00-17:00",
+        "friday": "08:00-17:00",
+        "saturday": "08:00-13:00",
+        "sunday": "Fermé"
+      },
+      "createdAt": "2024-03-15T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "userId": 8,
+      "shopName": "Faso Dan Fani Traditionnel",
+      "description": "Tissus et vêtements traditionnels burkinabé",
+      "logo": "https://i.pravatar.cc/200?img=33",
+      "banner": "https://images.unsplash.com/photo-1618453292507-4959ece6429e?w=1200&h=300&fit=crop",
+      "category": "Textile & Faso Dan Fani",
+      "rating": 4.6,
+      "reviewCount": 89,
+      "productCount": 32,
+      "verified": true,
+      "regionId": 4,
+      "location": {
+        "street": "Zone Commerciale",
+        "city": "Ouahigouya",
+        "region": "Nord",
+        "coordinates": {
+          "lat": 13.5828,
+          "lng": -2.4214
+        }
+      },
+      "contact": {
+        "phone": "+226 77 89 01 23",
+        "email": "contact@fasodanfani.bf",
+        "whatsapp": "+226 77 89 01 23"
+      },
+      "businessHours": {
+        "monday": "08:30-18:30",
+        "tuesday": "08:30-18:30",
+        "wednesday": "08:30-18:30",
+        "thursday": "08:30-18:30",
+        "friday": "08:30-18:30",
+        "saturday": "08:30-18:00",
+        "sunday": "Fermé"
+      },
+      "createdAt": "2024-04-15T00:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "userId": 11,
+      "shopName": "Fruits du Sahel",
+      "description": "Fruits et légumes frais des Niayes burkinabé",
+      "logo": "https://i.pravatar.cc/200?img=34",
+      "banner": "https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=1200&h=300&fit=crop",
+      "category": "Fruits & Légumes",
+      "rating": 4.5,
+      "reviewCount": 145,
+      "productCount": 38,
+      "verified": true,
+      "regionId": 1,
+      "location": {
+        "street": "Marché de Gounghin",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "coordinates": {
+          "lat": 12.3802,
+          "lng": -1.518
+        }
+      },
+      "contact": {
+        "phone": "+226 71 11 22 33",
+        "email": "contact@fruitsdusahel.bf",
+        "whatsapp": "+226 71 11 22 33"
+      },
+      "businessHours": {
+        "monday": "06:00-18:00",
+        "tuesday": "06:00-18:00",
+        "wednesday": "06:00-18:00",
+        "thursday": "06:00-18:00",
+        "friday": "06:00-18:00",
+        "saturday": "06:00-14:00",
+        "sunday": "Fermé"
+      },
+      "createdAt": "2024-05-01T00:00:00.000Z"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "vendorId": 1,
+      "name": "Mil Local",
+      "slug": "mil-local",
+      "description": "Mil rouge de qualité supérieure cultivé localement",
+      "category": "Céréales & Graines",
+      "subCategory": "Céréales",
+      "price": 500,
+      "compareAtPrice": 600,
+      "unit": "kg",
+      "images": [
+        "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800"
+      ],
+      "stock": 500,
+      "minOrder": 1,
+      "maxOrder": 100,
+      "rating": 4.8,
+      "reviewCount": 45,
+      "featured": true,
+      "tags": [
+        "bio",
+        "local"
+      ],
+      "attributes": {
+        "origin": "Ouahigouya",
+        "certification": "Bio"
+      },
+      "isActive": true,
+      "createdAt": "2024-01-20T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "vendorId": 1,
+      "name": "Sorgho Rouge",
+      "slug": "sorgho-rouge",
+      "description": "Sorgho rouge du Sahel pour plats traditionnels",
+      "category": "Céréales & Graines",
+      "subCategory": "Céréales",
+      "price": 450,
+      "compareAtPrice": null,
+      "unit": "kg",
+      "images": [
+        "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800"
+      ],
+      "stock": 300,
+      "minOrder": 1,
+      "maxOrder": 80,
+      "rating": 4.7,
+      "reviewCount": 32,
+      "featured": false,
+      "tags": [
+        "local"
+      ],
+      "attributes": {
+        "origin": "Kaya"
+      },
+      "isActive": true,
+      "createdAt": "2024-01-22T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "vendorId": 1,
+      "name": "Maïs Blanc",
+      "slug": "mais-blanc",
+      "description": "Maïs blanc frais pour préparation de tô",
+      "category": "Céréales & Graines",
+      "subCategory": "Céréales",
+      "price": 400,
+      "compareAtPrice": 500,
+      "unit": "kg",
+      "images": [
+        "https://images.unsplash.com/photo-1551754655-cd27e38d2076?w=800"
+      ],
+      "stock": 450,
+      "minOrder": 1,
+      "maxOrder": 100,
+      "rating": 4.6,
+      "reviewCount": 28,
+      "featured": true,
+      "tags": [
+        "local",
+        "frais"
+      ],
+      "attributes": {
+        "origin": "Bobo-Dioulasso"
+      },
+      "isActive": true,
+      "createdAt": "2024-01-25T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "vendorId": 5,
+      "name": "Mangues Amélie",
+      "slug": "mangues-amelie",
+      "description": "Mangues Amélie juteuses et sucrées",
+      "category": "Fruits & Légumes",
+      "subCategory": "Fruits",
+      "price": 1000,
+      "compareAtPrice": 1200,
+      "unit": "kg",
+      "images": [
+        "https://images.unsplash.com/photo-1553279768-865429fa0078?w=800"
+      ],
+      "stock": 200,
+      "minOrder": 1,
+      "maxOrder": 50,
+      "rating": 4.9,
+      "reviewCount": 89,
+      "featured": true,
+      "tags": [
+        "frais",
+        "saison"
+      ],
+      "attributes": {
+        "origin": "Banfora"
+      },
+      "isActive": true,
+      "createdAt": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "vendorId": 5,
+      "name": "Tomates Fraîches",
+      "slug": "tomates-fraiches",
+      "description": "Tomates fraîches du maraîchage local",
+      "category": "Fruits & Légumes",
+      "subCategory": "Légumes",
+      "price": 600,
+      "compareAtPrice": null,
+      "unit": "kg",
+      "images": [
+        "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=800"
+      ],
+      "stock": 150,
+      "minOrder": 1,
+      "maxOrder": 30,
+      "rating": 4.5,
+      "reviewCount": 56,
+      "featured": false,
+      "tags": [
+        "frais",
+        "local"
+      ],
+      "attributes": {
+        "origin": "Ouagadougou"
+      },
+      "isActive": true,
+      "createdAt": "2024-02-05T00:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "vendorId": 2,
+      "name": "Masque Bobo",
+      "slug": "masque-bobo",
+      "description": "Masque traditionnel sculpté à la main",
+      "category": "Artisanat",
+      "subCategory": "Art",
+      "price": 15000,
+      "compareAtPrice": 18000,
+      "unit": "pièce",
+      "images": [
+        "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=800"
+      ],
+      "stock": 25,
+      "minOrder": 1,
+      "maxOrder": 5,
+      "rating": 4.9,
+      "reviewCount": 67,
+      "featured": true,
+      "tags": [
+        "artisanat",
+        "fait-main"
+      ],
+      "attributes": {
+        "material": "Bois d'ébène",
+        "artisan": "Coopérative Bobo"
+      },
+      "isActive": true,
+      "createdAt": "2024-02-10T00:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "vendorId": 2,
+      "name": "Panier Tressé",
+      "slug": "panier-tresse",
+      "description": "Panier en paille tressée artisanal",
+      "category": "Artisanat",
+      "subCategory": "Décoration",
+      "price": 5000,
+      "compareAtPrice": 6000,
+      "unit": "pièce",
+      "images": [
+        "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800"
+      ],
+      "stock": 40,
+      "minOrder": 1,
+      "maxOrder": 10,
+      "rating": 4.7,
+      "reviewCount": 34,
+      "featured": false,
+      "tags": [
+        "artisanat",
+        "déco"
+      ],
+      "attributes": {
+        "dimensions": "40x30cm"
+      },
+      "isActive": true,
+      "createdAt": "2024-02-12T00:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "vendorId": 4,
+      "name": "Tissu Faso Dan Fani Premium",
+      "slug": "faso-dan-fani-premium",
+      "description": "Tissu traditionnel tissé main motifs géométriques",
+      "category": "Textile & Faso Dan Fani",
+      "subCategory": "Tissus",
+      "price": 25000,
+      "compareAtPrice": 30000,
+      "unit": "pièce (6 yards)",
+      "images": [
+        "https://images.unsplash.com/photo-1618453292507-4959ece6429e?w=800"
+      ],
+      "stock": 30,
+      "minOrder": 1,
+      "maxOrder": 5,
+      "rating": 4.8,
+      "reviewCount": 92,
+      "featured": true,
+      "tags": [
+        "traditionnel",
+        "fait-main"
+      ],
+      "attributes": {
+        "couleurs": "Rouge, Vert, Noir"
+      },
+      "isActive": true,
+      "createdAt": "2024-02-15T00:00:00.000Z"
+    },
+    {
+      "id": 9,
+      "vendorId": 3,
+      "name": "Beurre de Karité Bio 500g",
+      "slug": "beurre-karite-bio-500g",
+      "description": "Beurre de karité 100% naturel certifié bio",
+      "category": "Karité & Produits Cosmétiques",
+      "subCategory": "Soins Corps",
+      "price": 3500,
+      "compareAtPrice": 4000,
+      "unit": "pot 500g",
+      "images": [
+        "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=800"
+      ],
+      "stock": 100,
+      "minOrder": 1,
+      "maxOrder": 20,
+      "rating": 4.9,
+      "reviewCount": 156,
+      "featured": true,
+      "tags": [
+        "bio",
+        "naturel"
+      ],
+      "attributes": {
+        "certification": "Ecocert",
+        "origine": "Koudougou"
+      },
+      "isActive": true,
+      "createdAt": "2024-02-20T00:00:00.000Z"
+    },
+    {
+      "id": 10,
+      "vendorId": 3,
+      "name": "Savon au Karité",
+      "slug": "savon-karite",
+      "description": "Savon artisanal au beurre de karité",
+      "category": "Karité & Produits Cosmétiques",
+      "subCategory": "Soins Corps",
+      "price": 1500,
+      "compareAtPrice": null,
+      "unit": "pièce",
+      "images": [
+        "https://images.unsplash.com/photo-1600857544200-e3b00f884d87?w=800"
+      ],
+      "stock": 200,
+      "minOrder": 1,
+      "maxOrder": 30,
+      "rating": 4.6,
+      "reviewCount": 78,
+      "featured": false,
+      "tags": [
+        "naturel",
+        "artisanal"
+      ],
+      "attributes": {
+        "poids": "150g"
+      },
+      "isActive": true,
+      "createdAt": "2024-02-22T00:00:00.000Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 4,
+      "orderNumber": "ORD-BF-2024-001",
+      "status": "delivered",
+      "items": [
+        {
+          "productId": 1,
+          "name": "Mil Local",
+          "quantity": 10,
+          "price": 500,
+          "total": 5000,
+          "vendorId": 1
+        },
+        {
+          "productId": 4,
+          "name": "Mangues Amélie",
+          "quantity": 5,
+          "price": 1000,
+          "total": 5000,
+          "vendorId": 5
+        }
+      ],
+      "subtotal": 10000,
+      "shippingCost": 1500,
+      "tax": 0,
+      "discount": 0,
+      "total": 11500,
+      "paymentMethod": "orange_money",
+      "paymentStatus": "paid",
+      "shippingAddress": {
+        "firstName": "Aminata",
+        "lastName": "Kaboré",
+        "phone": "+226 73 45 67 89",
+        "street": "Secteur 15",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "01 BP 4567"
+      },
+      "deliveryDate": "2024-06-18T14:30:00.000Z",
+      "createdAt": "2024-06-15T10:00:00.000Z",
+      "updatedAt": "2024-06-18T14:30:00.000Z"
+    },
+    {
+      "id": 2,
+      "userId": 5,
+      "orderNumber": "ORD-BF-2024-002",
+      "status": "processing",
+      "items": [
+        {
+          "productId": 6,
+          "name": "Masque Bobo",
+          "quantity": 1,
+          "price": 15000,
+          "total": 15000,
+          "vendorId": 2
+        },
+        {
+          "productId": 9,
+          "name": "Beurre de Karité Bio 500g",
+          "quantity": 3,
+          "price": 3500,
+          "total": 10500,
+          "vendorId": 3
+        }
+      ],
+      "subtotal": 25500,
+      "shippingCost": 2000,
+      "tax": 0,
+      "discount": 1500,
+      "total": 26000,
+      "paymentMethod": "wave",
+      "paymentStatus": "paid",
+      "shippingAddress": {
+        "firstName": "Boureima",
+        "lastName": "Traoré",
+        "phone": "+226 74 56 78 90",
+        "street": "Avenue de l'Indépendance",
+        "city": "Bobo-Dioulasso",
+        "region": "Hauts-Bassins",
+        "postalCode": "01 BP 5678"
+      },
+      "estimatedDeliveryDate": "2024-06-25T00:00:00.000Z",
+      "createdAt": "2024-06-20T15:00:00.000Z",
+      "updatedAt": "2024-06-20T15:30:00.000Z"
+    },
+    {
+      "userId": 11,
+      "orderNumber": "ORD-1770309588269",
+      "status": "pending",
+      "items": [
+        {
+          "productId": 1,
+          "quantity": 2,
+          "price": 500,
+          "total": 1000,
+          "name": "Mil Local",
+          "vendorId": 1
+        },
+        {
+          "productId": 2,
+          "quantity": 1,
+          "price": 450,
+          "total": 450,
+          "name": "Sorgho Rouge",
+          "vendorId": 1
+        }
+      ],
+      "subtotal": 1450,
+      "shippingCost": 2000,
+      "tax": 0,
+      "discount": 0,
+      "total": 3450,
+      "paymentMethod": "orange_money",
+      "paymentStatus": "pending",
+      "shippingAddress": {
+        "street": "Patte d'oie",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "00000",
+        "country": "Burkina Faso"
+      },
+      "createdAt": "2026-02-05T16:39:48.269Z",
+      "id": 3
+    }
+  ],
+  "cart": [],
+  "reviews": [
+    {
+      "id": 1,
+      "productId": 1,
+      "userId": 4,
+      "rating": 5,
+      "title": "Excellent mil !",
+      "comment": "Très bonne qualité, je recommande vivement!",
+      "helpful": 12,
+      "verified": true,
+      "createdAt": "2024-06-18T16:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "productId": 4,
+      "userId": 5,
+      "rating": 5,
+      "title": "Mangues délicieuses",
+      "comment": "Juteuses et bien mûres, parfaites!",
+      "helpful": 18,
+      "verified": true,
+      "createdAt": "2024-06-19T10:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "productId": 6,
+      "userId": 7,
+      "rating": 5,
+      "title": "Magnifique artisanat",
+      "comment": "Travail artisanal exceptionnel, très beau masque.",
+      "helpful": 25,
+      "verified": false,
+      "createdAt": "2024-06-20T14:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "productId": 9,
+      "userId": 4,
+      "rating": 5,
+      "title": "Beurre de karité top qualité",
+      "comment": "Le meilleur beurre de karité que j'ai utilisé. Vraiment bio et efficace.",
+      "helpful": 34,
+      "verified": true,
+      "createdAt": "2024-06-21T09:00:00.000Z"
+    }
+  ],
+  "wishlist": []
+}

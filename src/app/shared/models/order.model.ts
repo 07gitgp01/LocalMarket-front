@@ -39,6 +39,7 @@ export enum PaymentStatus {
 export interface OrderItem {
     productId: number;
     name: string;
+    productName: string; // Alias for name for consistency
     quantity: number;
     price: number; // Prix unitaire au moment de l'achat
     total: number;
@@ -55,7 +56,7 @@ export interface Order {
     id: number;
     userId: number;
     orderNumber: string; // Ex: ORD-2024-001
-    status: OrderStatus;
+    status: string; // 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled'
     items: OrderItem[];
     subtotal: number;
     shippingCost: number;
@@ -63,8 +64,8 @@ export interface Order {
     discount: number;
     total: number;
 
-    paymentMethod: PaymentMethod;
-    paymentStatus: PaymentStatus;
+    paymentMethod: string; // 'cash' | 'mobile_money' | 'card' | 'bank_transfer'
+    paymentStatus: string; // 'pending' | 'paid' | 'failed'
     transactionId?: string;
 
     shippingAddress: Address;

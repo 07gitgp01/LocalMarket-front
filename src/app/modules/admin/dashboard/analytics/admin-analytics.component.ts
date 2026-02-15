@@ -1,35 +1,59 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+
+import { OrderService } from '@core/services/order.service';
+import { ProductService } from '@core/services/product.service';
+import { LoadingSpinnerComponent } from '@shared/components/loading-spinner/loading-spinner.component';
 
 @Component({
   selector: 'app-admin-analytics',
   standalone: true,
   imports: [
     CommonModule,
+    RouterLink,
+    FormsModule,
     MatCardModule,
     MatIconModule,
     MatButtonModule,
     MatTableModule,
-    MatChipsModule
+    MatChipsModule,
+    MatProgressSpinnerModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    LoadingSpinnerComponent
   ],
   template: `
-    <div class="analytics-container">
+    <app-loading-spinner *ngIf="isLoading" [fullscreen]="false" message="Chargement des statistiques..."></app-loading-spinner>
+
+    <div *ngIf="!isLoading" class="analytics-container">
       <div class="page-header">
         <div>
           <h1>Tableau de bord</h1>
           <p>Vue d'ensemble de la plateforme LocalMarket.bf</p>
         </div>
         <div class="header-actions">
-          <button mat-stroked-button>
+          <mat-form-field appearance="outline" class="period-select">
+            <mat-select [(value)]="selectedPeriod" (selectionChange)="loadAnalytics()">
+              <mat-option value="week">Cette semaine</mat-option>
+              <mat-option value="month">Ce mois</mat-option>
+              <mat-option value="year">Cette année</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-stroked-button (click)="exportData()">
             <mat-icon>file_download</mat-icon>
             Exporter
           </button>
-          <button mat-flat-button color="primary">
+          <button mat-flat-button color="primary" (click)="loadAnalytics()">
             <mat-icon>refresh</mat-icon>
             Actualiser
           </button>
@@ -42,10 +66,10 @@ import { MatChipsModule } from '@angular/material/chips';
           <div class="kpi-content">
             <div class="kpi-info">
               <span class="kpi-label">Utilisateurs Total</span>
-              <h2 class="kpi-value">12,450</h2>
+              <h2 class="kpi-value">{{ stats().totalUsers | number }}</h2>
               <div class="kpi-change positive">
                 <mat-icon>trending_up</mat-icon>
-                <span>+12% ce mois</span>
+                <span>{{ stats().usersGrowth }}% ce mois</span>
               </div>
             </div>
             <div class="kpi-icon blue">
@@ -68,10 +92,10 @@ import { MatChipsModule } from '@angular/material/chips';
           <div class="kpi-content">
             <div class="kpi-info">
               <span class="kpi-label">Revenu Total</span>
-              <h2 class="kpi-value">45M FCFA</h2>
+              <h2 class="kpi-value">{{ stats().totalRevenue | number:'1.0-0' }} FCFA</h2>
               <div class="kpi-change positive">
                 <mat-icon>trending_up</mat-icon>
-                <span>+8% ce mois</span>
+                <span>{{ stats().revenueGrowth }}% ce mois</span>
               </div>
             </div>
             <div class="kpi-icon green">
@@ -94,10 +118,10 @@ import { MatChipsModule } from '@angular/material/chips';
           <div class="kpi-content">
             <div class="kpi-info">
               <span class="kpi-label">Vendeurs Actifs</span>
-              <h2 class="kpi-value">340</h2>
+              <h2 class="kpi-value">{{ stats().totalVendors }}</h2>
               <div class="kpi-change positive">
                 <mat-icon>trending_up</mat-icon>
-                <span>+5 nouveaux</span>
+                <span>+{{ stats().newVendors }} nouveaux</span>
               </div>
             </div>
             <div class="kpi-icon purple">
@@ -120,10 +144,10 @@ import { MatChipsModule } from '@angular/material/chips';
           <div class="kpi-content">
             <div class="kpi-info">
               <span class="kpi-label">Commandes</span>
-              <h2 class="kpi-value">1,204</h2>
+              <h2 class="kpi-value">{{ stats().totalOrders }}</h2>
               <div class="kpi-change warning">
                 <mat-icon>schedule</mat-icon>
-                <span>45 en attente</span>
+                <span>{{ stats().pendingOrders }} en attente</span>
               </div>
             </div>
             <div class="kpi-icon orange">
@@ -185,66 +209,33 @@ import { MatChipsModule } from '@angular/material/chips';
           <div class="card-header">
             <div>
               <h3>Nouveaux vendeurs</h3>
-              <p>En attente de validation</p>
+              <p>{{ recentVendors.length }} en attente de validation</p>
             </div>
-            <a href="#" class="view-all">Voir tous</a>
+            <a routerLink="../users" class="view-all">Voir tous</a>
           </div>
           <div class="vendor-list">
-            <div class="vendor-item">
+            <div *ngFor="let vendor of recentVendors" class="vendor-item">
               <div class="vendor-avatar">
                 <mat-icon>store</mat-icon>
               </div>
               <div class="vendor-info">
-                <h4>Bio Farm Koudougou</h4>
-                <p>Agro-alimentaire</p>
-                <span class="vendor-date">Il y a 2h</span>
+                <h4>{{ vendor.firstName }} {{ vendor.lastName }}</h4>
+                <p>{{ vendor.email }}</p>
+                <span class="vendor-date">{{ vendor.createdAt | date:'short' }}</span>
               </div>
               <div class="vendor-actions">
-                <button mat-icon-button color="primary">
+                <button mat-icon-button color="primary" (click)="approveVendor(vendor)" matTooltip="Approuver">
                   <mat-icon>check_circle</mat-icon>
                 </button>
-                <button mat-icon-button color="warn">
+                <button mat-icon-button color="warn" (click)="rejectVendor(vendor)" matTooltip="Rejeter">
                   <mat-icon>cancel</mat-icon>
                 </button>
               </div>
             </div>
 
-            <div class="vendor-item">
-              <div class="vendor-avatar">
-                <mat-icon>store</mat-icon>
-              </div>
-              <div class="vendor-info">
-                <h4>Tissage Faso</h4>
-                <p>Artisanat</p>
-                <span class="vendor-date">Il y a 5h</span>
-              </div>
-              <div class="vendor-actions">
-                <button mat-icon-button color="primary">
-                  <mat-icon>check_circle</mat-icon>
-                </button>
-                <button mat-icon-button color="warn">
-                  <mat-icon>cancel</mat-icon>
-                </button>
-              </div>
-            </div>
-
-            <div class="vendor-item">
-              <div class="vendor-avatar">
-                <mat-icon>store</mat-icon>
-              </div>
-              <div class="vendor-info">
-                <h4>Miel du Sahel</h4>
-                <p>Produits naturels</p>
-                <span class="vendor-date">Hier</span>
-              </div>
-              <div class="vendor-actions">
-                <button mat-icon-button color="primary">
-                  <mat-icon>check_circle</mat-icon>
-                </button>
-                <button mat-icon-button color="warn">
-                  <mat-icon>cancel</mat-icon>
-                </button>
-              </div>
+            <div *ngIf="recentVendors.length === 0" class="empty-state">
+              <mat-icon>check_circle</mat-icon>
+              <p>Aucun vendeur en attente</p>
             </div>
           </div>
         </mat-card>
@@ -707,6 +698,111 @@ import { MatChipsModule } from '@angular/material/chips';
       color: #9ca3af;
       white-space: nowrap;
     }
+
+    .period-select {
+      width: 180px;
+    }
+
+    .period-select ::ng-deep .mat-mdc-form-field-wrapper {
+      padding-bottom: 0;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 2rem;
+      color: #9ca3af;
+    }
+
+    .empty-state mat-icon {
+      font-size: 48px;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1rem;
+    }
+
+    .empty-state p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
   `]
 })
-export class AdminAnalyticsComponent { }
+export class AdminAnalyticsComponent implements OnInit {
+  private orderService = inject(OrderService);
+  private productService = inject(ProductService);
+  
+  isLoading = true;
+  selectedPeriod = 'month';
+  
+  stats = signal({
+    totalUsers: 0,
+    usersGrowth: 0,
+    totalRevenue: 0,
+    revenueGrowth: 0,
+    totalVendors: 0,
+    newVendors: 0,
+    totalOrders: 0,
+    pendingOrders: 0
+  });
+  
+  recentVendors: any[] = [];
+
+  ngOnInit() {
+    this.loadAnalytics();
+  }
+
+  loadAnalytics() {
+    this.isLoading = true;
+    
+    // Load data in parallel
+    Promise.all([
+      this.orderService.getOrders().toPromise(),
+      this.productService.getProducts({}).toPromise()
+    ]).then(([orders, products]) => {
+      // Calculate stats
+      const totalOrders = orders?.length || 0;
+      const pendingOrders = orders?.filter((o: any) => o.status === 'pending').length || 0;
+      const totalRevenue = orders?.reduce((sum: number, o: any) => sum + o.total, 0) || 0;
+      
+      // Mock user data for now
+      const totalUsers = 150;
+      const totalVendors = 25;
+      this.recentVendors = [];
+      
+      this.stats.set({
+        totalUsers,
+        usersGrowth: 12,
+        totalRevenue,
+        revenueGrowth: 8,
+        totalVendors,
+        newVendors: 5,
+        totalOrders,
+        pendingOrders
+      });
+      
+      this.isLoading = false;
+    }).catch(() => {
+      this.isLoading = false;
+    });
+  }
+
+  approveVendor(vendor: any) {
+    if (confirm(`Approuver le vendeur ${vendor.firstName} ${vendor.lastName} ?`)) {
+      // TODO: Implement vendor approval
+      console.log('Approve vendor:', vendor);
+      this.loadAnalytics();
+    }
+  }
+
+  rejectVendor(vendor: any) {
+    if (confirm(`Rejeter le vendeur ${vendor.firstName} ${vendor.lastName} ?`)) {
+      // TODO: Implement vendor rejection
+      console.log('Reject vendor:', vendor);
+      this.loadAnalytics();
+    }
+  }
+
+  exportData() {
+    console.log('Export data');
+    // TODO: Implement data export
+  }
+}

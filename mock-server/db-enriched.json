@@ -1,0 +1,665 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Amidou",
+      "lastName": "Ouédraogo",
+      "role": "admin",
+      "phone": "+226 70 12 34 56",
+      "address": {
+        "street": "Avenue Kwame Nkrumah",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "01 BP 1234"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=1",
+      "status": "active",
+      "createdAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "email": "vendor1@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Fatoumata",
+      "lastName": "Compaoré",
+      "role": "vendor",
+      "phone": "+226 71 23 45 67",
+      "vendorId": 1,
+      "address": {
+        "street": "Marché Rood Woko",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "01 BP 2345"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=5",
+      "status": "active",
+      "createdAt": "2024-01-15T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "email": "vendor2@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Ablassé",
+      "lastName": "Sawadogo",
+      "role": "vendor",
+      "phone": "+226 72 34 56 78",
+      "vendorId": 2,
+      "address": {
+        "street": "Zone Artisanale",
+        "city": "Bobo-Dioulasso",
+        "region": "Hauts-Bassins",
+        "postalCode": "01 BP 3456"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=8",
+      "status": "active",
+      "createdAt": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "email": "client1@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Aminata",
+      "lastName": "Kaboré",
+      "role": "customer",
+      "phone": "+226 73 45 67 89",
+      "address": {
+        "street": "Secteur 15",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "01 BP 4567"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=10",
+      "status": "active",
+      "createdAt": "2024-02-15T00:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "email": "client2@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Boureima",
+      "lastName": "Traoré",
+      "role": "customer",
+      "phone": "+226 74 56 78 90",
+      "address": {
+        "street": "Avenue de l'Indépendance",
+        "city": "Bobo-Dioulasso",
+        "region": "Hauts-Bassins",
+        "postalCode": "01 BP 5678"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=12",
+      "status": "active",
+      "createdAt": "2024-03-01T00:00:00.000Z"
+    },
+    {
+      "id": 6,
+      "email": "vendor3@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Rasmata",
+      "lastName": "Sankara",
+      "role": "vendor",
+      "phone": "+226 75 67 89 01",
+      "vendorId": 3,
+      "address": {
+        "street": "Marché Central",
+        "city": "Koudougou",
+        "region": "Centre-Ouest",
+        "postalCode": "01 BP 6789"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=20",
+      "status": "active",
+      "createdAt": "2024-03-15T00:00:00.000Z"
+    },
+    {
+      "id": 7,
+      "email": "client3@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Salif",
+      "lastName": "Yameogo",
+      "role": "customer",
+      "phone": "+226 76 78 90 12",
+      "address": {
+        "street": "Quartier Gounghin",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "01 BP 7890"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=15",
+      "status": "active",
+      "createdAt": "2024-04-01T00:00:00.000Z"
+    },
+    {
+      "id": 8,
+      "email": "vendor4@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Mariame",
+      "lastName": "Zoungrana",
+      "role": "vendor",
+      "phone": "+226 77 89 01 23",
+      "vendorId": 4,
+      "address": {
+        "street": "Zone Commerciale",
+        "city": "Ouahigouya",
+        "region": "Nord",
+        "postalCode": "01 BP 8901"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=25",
+      "status": "active",
+      "createdAt": "2024-04-15T00:00:00.000Z"
+    },
+    {
+      "id": 9,
+      "email": "client4@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Issa",
+      "lastName": "Ouattara",
+      "role": "customer",
+      "phone": "+226 78 90 12 34",
+      "address": {
+        "street": "Secteur 30",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "01 BP 9012"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=18",
+      "status": "active",
+      "createdAt": "2024-05-01T00:00:00.000Z"
+    },
+    {
+      "id": 10,
+      "email": "client5@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Hawa",
+      "lastName": "Diallo",
+      "role": "customer",
+      "phone": "+226 79 01 23 45",
+      "address": {
+        "street": "Avenue Loudun",
+        "city": "Bobo-Dioulasso",
+        "region": "Hauts-Bassins",
+        "postalCode": "01 BP 0123"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=22",
+      "status": "active",
+      "createdAt": "2024-05-15T00:00:00.000Z"
+    },
+    {
+      "id": 11,
+      "email": "vendor5@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Moussa",
+      "lastName": "Guigma",
+      "role": "vendor",
+      "phone": "+226 64 09 57 71",
+      "vendorId": 5,
+      "address": {
+        "street": "Marché de Gounghin",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "01 BP 1111"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=30",
+      "status": "active",
+      "createdAt": "2024-05-01T00:00:00.000Z"
+    },
+    {
+      "id": 12,
+      "email": "client6@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Aïcha",
+      "lastName": "Sana",
+      "role": "customer",
+      "phone": "+226 70 11 22 33",
+      "address": {
+        "street": "Secteur 25",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "01 BP 2222"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=35",
+      "status": "active",
+      "createdAt": "2025-01-10T00:00:00.000Z"
+    },
+    {
+      "id": 13,
+      "email": "client7@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Ibrahim",
+      "lastName": "Zongo",
+      "role": "customer",
+      "phone": "+226 71 22 33 44",
+      "address": {
+        "street": "Quartier Dapoya",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "01 BP 3333"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=40",
+      "status": "active",
+      "createdAt": "2025-02-01T00:00:00.000Z"
+    },
+    {
+      "id": 14,
+      "email": "client8@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Mariam",
+      "lastName": "Tapsoba",
+      "role": "customer",
+      "phone": "+226 72 33 44 55",
+      "address": {
+        "street": "Avenue Charles de Gaulle",
+        "city": "Bobo-Dioulasso",
+        "region": "Hauts-Bassins",
+        "postalCode": "01 BP 4444"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=45",
+      "status": "active",
+      "createdAt": "2025-12-15T00:00:00.000Z"
+    },
+    {
+      "id": 15,
+      "email": "client9@localmarket.bf",
+      "password": "$2a$10$JGhkFLEWK1OfzJ.JQzBfHOqT.aUL93vQ4T8v6.CdHxXQ81K5M5v72",
+      "firstName": "Souleymane",
+      "lastName": "Kaboré",
+      "role": "customer",
+      "phone": "+226 73 44 55 66",
+      "address": {
+        "street": "Secteur 12",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "01 BP 5555"
+      },
+      "avatar": "https://i.pravatar.cc/150?img=50",
+      "status": "active",
+      "createdAt": "2026-01-05T00:00:00.000Z"
+    }
+  ],
+  "regions": [
+    {
+      "id": 1,
+      "name": "Centre",
+      "capital": "Ouagadougou",
+      "population": 2415266,
+      "area": 2805,
+      "provinces": ["Kadiogo"]
+    },
+    {
+      "id": 2,
+      "name": "Hauts-Bassins",
+      "capital": "Bobo-Dioulasso",
+      "population": 1703668,
+      "area": 25575,
+      "provinces": ["Houet", "Kénédougou", "Tuy"]
+    },
+    {
+      "id": 3,
+      "name": "Centre-Ouest",
+      "capital": "Koudougou",
+      "population": 1522910,
+      "area": 21691,
+      "provinces": ["Boulkiemdé", "Sanguié", "Sissili", "Ziro"]
+    },
+    {
+      "id": 4,
+      "name": "Nord",
+      "capital": "Ouahigouya",
+      "population": 1385107,
+      "area": 17958,
+      "provinces": ["Loroum", "Passoré", "Yatenga", "Zondoma"]
+    },
+    {
+      "id": 5,
+      "name": "Est",
+      "capital": "Fada N'Gourma",
+      "population": 1572206,
+      "area": 46707,
+      "provinces": ["Gnagna", "Gourma", "Komandjoari", "Kompienga", "Tapoa"]
+    },
+    {
+      "id": 6,
+      "name": "Sud-Ouest",
+      "capital": "Gaoua",
+      "population": 741197,
+      "area": 16153,
+      "provinces": ["Bougouriba", "Ioba", "Noumbiel", "Poni"]
+    },
+    {
+      "id": 7,
+      "name": "Cascades",
+      "capital": "Banfora",
+      "population": 716561,
+      "area": 15415,
+      "provinces": ["Comoé", "Léraba"]
+    },
+    {
+      "id": 8,
+      "name": "Sahel",
+      "capital": "Dori",
+      "population": 1446570,
+      "area": 35820,
+      "provinces": ["Oudalan", "Séno", "Soum", "Yagha"]
+    },
+    {
+      "id": 9,
+      "name": "Plateau-Central",
+      "capital": "Ziniaré",
+      "population": 771606,
+      "area": 8575,
+      "provinces": ["Ganzourgou", "Kourwéogo", "Oubritenga"]
+    },
+    {
+      "id": 10,
+      "name": "Centre-Nord",
+      "capital": "Kaya",
+      "population": 1599354,
+      "area": 19508,
+      "provinces": ["Bam", "Namentenga", "Sanmatenga"]
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Céréales & Graines",
+      "slug": "cereales-graines",
+      "description": "Mil, sorgho, maïs, riz local et autres céréales",
+      "icon": "pi-sun",
+      "image": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400",
+      "productCount": 45,
+      "order": 1,
+      "isActive": true
+    },
+    {
+      "id": 2,
+      "name": "Fruits & Légumes",
+      "slug": "fruits-legumes",
+      "description": "Produits frais de nos maraîchers",
+      "icon": "pi-shopping-bag",
+      "image": "https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=400",
+      "productCount": 67,
+      "order": 2,
+      "isActive": true
+    },
+    {
+      "id": 3,
+      "name": "Artisanat",
+      "slug": "artisanat",
+      "description": "Objets d'art et artisanat burkinabé",
+      "icon": "pi-gift",
+      "image": "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=400",
+      "productCount": 89,
+      "order": 3,
+      "isActive": true
+    },
+    {
+      "id": 4,
+      "name": "Textile & Faso Dan Fani",
+      "slug": "textile-faso-dan-fani",
+      "description": "Tissus traditionnels et vêtements",
+      "icon": "pi-th-large",
+      "image": "https://images.unsplash.com/photo-1618453292507-4959ece6429e?w=400",
+      "productCount": 54,
+      "order": 4,
+      "isActive": true
+    },
+    {
+      "id": 5,
+      "name": "Karité & Produits Cosmétiques",
+      "slug": "karite-cosmetiques",
+      "description": "Beurre de karité et produits dérivés",
+      "icon": "pi-heart",
+      "image": "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=400",
+      "productCount": 32,
+      "order": 5,
+      "isActive": true
+    },
+    {
+      "id": 6,
+      "name": "Épices & Condiments",
+      "slug": "epices-condiments",
+      "description": "Soumbala, piment, gingembre et autres épices",
+      "icon": "pi-star",
+      "image": "https://images.unsplash.com/photo-1596040033229-a0b4f8e27bc8?w=400",
+      "productCount": 28,
+      "order": 6,
+      "isActive": true
+    },
+    {
+      "id": 7,
+      "name": "Volaille & Œufs",
+      "slug": "volaille-oeufs",
+      "description": "Poulets bicyclette et œufs frais",
+      "icon": "pi-circle",
+      "image": "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?w=400",
+      "productCount": 18,
+      "order": 7,
+      "isActive": true
+    },
+    {
+      "id": 8,
+      "name": "Miel & Produits de la Ruche",
+      "slug": "miel-produits-ruche",
+      "description": "Miel naturel et produits apicoles",
+      "icon": "pi-globe",
+      "image": "https://images.unsplash.com/photo-1587049352846-4a222e784084?w=400",
+      "productCount": 15,
+      "order": 8,
+      "isActive": true
+    },
+    {
+      "id": 9,
+      "name": "Boissons Traditionnelles",
+      "slug": "boissons-traditionnelles",
+      "description": "Dolo, bissap, gingembre et jus locaux",
+      "icon": "pi-cup",
+      "image": "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400",
+      "productCount": 22,
+      "order": 9,
+      "isActive": true
+    },
+    {
+      "id": 10,
+      "name": "Tubercules & Racines",
+      "slug": "tubercules-racines",
+      "description": "Ignames, patates douces, manioc",
+      "icon": "pi-bookmark",
+      "image": "https://images.unsplash.com/photo-1568584711271-3c08f2095e7c?w=400",
+      "productCount": 24,
+      "order": 10,
+      "isActive": true
+    }
+  ],
+  "vendors": [
+    {
+      "id": 1,
+      "userId": 2,
+      "shopName": "Coopérative Wend Panga",
+      "description": "Spécialiste des céréales locales du Burkina Faso",
+      "logo": "https://i.pravatar.cc/200?img=30",
+      "banner": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1200&h=300&fit=crop",
+      "category": "Céréales & Graines",
+      "rating": 4.8,
+      "reviewCount": 156,
+      "productCount": 28,
+      "verified": true,
+      "regionId": 1,
+      "location": {
+        "street": "Marché Rood Woko",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "coordinates": {
+          "lat": 12.3714,
+          "lng": -1.5197
+        }
+      },
+      "contact": {
+        "phone": "+226 71 23 45 67",
+        "email": "contact@wendpanga.bf",
+        "whatsapp": "+226 71 23 45 67"
+      },
+      "businessHours": {
+        "monday": "07:00-18:00",
+        "tuesday": "07:00-18:00",
+        "wednesday": "07:00-18:00",
+        "thursday": "07:00-18:00",
+        "friday": "07:00-18:00",
+        "saturday": "07:00-14:00",
+        "sunday": "Fermé"
+      },
+      "createdAt": "2024-01-15T00:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "userId": 3,
+      "shopName": "Artisanat de Bobo",
+      "description": "Artisanat authentique du pays des hommes intègres",
+      "logo": "https://i.pravatar.cc/200?img=31",
+      "banner": "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=1200&h=300&fit=crop",
+      "category": "Artisanat",
+      "rating": 4.9,
+      "reviewCount": 203,
+      "productCount": 45,
+      "verified": true,
+      "regionId": 2,
+      "location": {
+        "street": "Zone Artisanale",
+        "city": "Bobo-Dioulasso",
+        "region": "Hauts-Bassins",
+        "coordinates": {
+          "lat": 11.1781,
+          "lng": -4.2967
+        }
+      },
+      "contact": {
+        "phone": "+226 72 34 56 78",
+        "email": "contact@artisanatbobo.bf",
+        "whatsapp": "+226 72 34 56 78"
+      },
+      "businessHours": {
+        "monday": "08:00-19:00",
+        "tuesday": "08:00-19:00",
+        "wednesday": "08:00-19:00",
+        "thursday": "08:00-19:00",
+        "friday": "08:00-19:00",
+        "saturday": "08:00-19:00",
+        "sunday": "09:00-16:00"
+      },
+      "createdAt": "2024-02-01T00:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "userId": 6,
+      "shopName": "Karité d'Or",
+      "description": "Producteur de beurre de karité bio certifié",
+      "logo": "https://i.pravatar.cc/200?img=32",
+      "banner": "https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?w=1200&h=300&fit=crop",
+      "category": "Karité & Produits Cosmétiques",
+      "rating": 4.7,
+      "reviewCount": 128,
+      "productCount": 18,
+      "verified": true,
+      "regionId": 3,
+      "location": {
+        "street": "Marché Central",
+        "city": "Koudougou",
+        "region": "Centre-Ouest",
+        "coordinates": {
+          "lat": 12.2529,
+          "lng": -2.3625
+        }
+      },
+      "contact": {
+        "phone": "+226 75 67 89 01",
+        "email": "contact@karitedor.bf",
+        "whatsapp": "+226 75 67 89 01"
+      },
+      "businessHours": {
+        "monday": "08:00-17:00",
+        "tuesday": "08:00-17:00",
+        "wednesday": "08:00-17:00",
+        "thursday": "08:00-17:00",
+        "friday": "08:00-17:00",
+        "saturday": "08:00-13:00",
+        "sunday": "Fermé"
+      },
+      "createdAt": "2024-03-15T00:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "userId": 8,
+      "shopName": "Faso Dan Fani Traditionnel",
+      "description": "Tissus et vêtements traditionnels burkinabé",
+      "logo": "https://i.pravatar.cc/200?img=33",
+      "banner": "https://images.unsplash.com/photo-1618453292507-4959ece6429e?w=1200&h=300&fit=crop",
+      "category": "Textile & Faso Dan Fani",
+      "rating": 4.6,
+      "reviewCount": 89,
+      "productCount": 32,
+      "verified": true,
+      "regionId": 4,
+      "location": {
+        "street": "Zone Commerciale",
+        "city": "Ouahigouya",
+        "region": "Nord",
+        "coordinates": {
+          "lat": 13.5828,
+          "lng": -2.4214
+        }
+      },
+      "contact": {
+        "phone": "+226 77 89 01 23",
+        "email": "contact@fasodanfani.bf",
+        "whatsapp": "+226 77 89 01 23"
+      },
+      "businessHours": {
+        "monday": "08:30-18:30",
+        "tuesday": "08:30-18:30",
+        "wednesday": "08:30-18:30",
+        "thursday": "08:30-18:30",
+        "friday": "08:30-18:30",
+        "saturday": "08:30-18:00",
+        "sunday": "Fermé"
+      },
+      "createdAt": "2024-04-15T00:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "userId": 11,
+      "shopName": "Fruits du Sahel",
+      "description": "Fruits et légumes frais des Niayes burkinabé",
+      "logo": "https://i.pravatar.cc/200?img=34",
+      "banner": "https://images.unsplash.com/photo-1464454709131-ffd692591ee5?w=1200&h=300&fit=crop",
+      "category": "Fruits & Légumes",
+      "rating": 4.5,
+      "reviewCount": 145,
+      "productCount": 38,
+      "verified": true,
+      "regionId": 1,
+      "location": {
+        "street": "Marché de Gounghin",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "coordinates": {
+          "lat": 12.3802,
+          "lng": -1.518
+        }
+      },
+      "contact": {
+        "phone": "+226 71 11 22 33",
+        "email": "contact@fruitsdusahel.bf",
+        "whatsapp": "+226 71 11 22 33"
+      },
+      "businessHours": {
+        "monday": "06:00-18:00",
+        "tuesday": "06:00-18:00",
+        "wednesday": "06:00-18:00",
+        "thursday": "06:00-18:00",
+        "friday": "06:00-18:00",
+        "saturday": "06:00-14:00",
+        "sunday": "Fermé"
+      },
+      "createdAt": "2024-05-01T00:00:00.000Z"
+    }
+  ],
+  "products": [

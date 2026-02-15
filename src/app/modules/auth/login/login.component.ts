@@ -457,9 +457,9 @@ export class LoginComponent {
 
   quickLogin(role: 'admin' | 'vendor' | 'customer') {
     const credentials = {
-      admin: { email: 'admin@example.com', password: 'admin123' },
-      vendor: { email: 'vendor@example.com', password: 'vendor123' },
-      customer: { email: 'customer@example.com', password: 'customer123' }
+      admin: { email: 'admin@localmarket.bf', password: 'password123' },
+      vendor: { email: 'user5@localmarket.bf', password: 'password123' },
+      customer: { email: 'user2@localmarket.bf', password: 'password123' }
     };
 
     const creds = credentials[role];

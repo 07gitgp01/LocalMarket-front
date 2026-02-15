@@ -26,6 +26,8 @@ export interface Address {
     region: string;
     postalCode: string;
     country?: string;
+    fullName?: string;
+    phone?: string;
     coordinates?: {
         lat: number;
         lng: number;
