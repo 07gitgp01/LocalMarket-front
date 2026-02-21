@@ -60,16 +60,12 @@ export const routes: Routes = [
                 canActivate: [authGuard, vendorGuard],
                 loadChildren: () => import('./modules/vendors/dashboard/vendor-dashboard.routes').then(m => m.VENDOR_DASHBOARD_ROUTES)
             },
-            {
-                path: 'vendors',
-                loadChildren: () => import('./modules/vendors/vendor.routes').then(m => m.VENDOR_ROUTES)
-            },
             // Routes protégées (Admin)
             {
                 path: 'admin',
                 canActivate: [authGuard, roleGuard],
                 data: { roles: [UserRole.ADMIN] },
-                loadChildren: () => import('./modules/admin/dashboard/admin-dashboard.routes').then(m => m.ADMIN_DASHBOARD_ROUTES)
+                loadChildren: () => import('./modules/admin/admin.routes').then(m => m.ADMIN_ROUTES)
             }
         ]
     },

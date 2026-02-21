@@ -71,6 +71,18 @@ export interface Vendor {
         [key: string]: string; // monday: "08:00-18:00"
     };
     createdAt: string;
+    
+    // Propriétés additionnelles pour l'admin
+    status?: 'active' | 'pending' | 'suspended' | 'rejected';
+    email?: string;
+    phone?: string;
+    totalRevenue?: number;
+    approvedAt?: string;
+    rejectedAt?: string;
+    rejectionReason?: string;
+    suspendedAt?: string;
+    suspensionReason?: string;
+    updatedAt?: string;
 }
 
 /**

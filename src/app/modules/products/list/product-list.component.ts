@@ -237,9 +237,9 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
               <button mat-flat-button color="primary" (click)="resetFilters()">Effacer les filtres</button>
             </div>
 
-            <!-- Products Grid -->
-            <div *ngIf="!isLoading && products.length > 0" class="products-grid">
-              <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+            <!-- Products Grid/List -->
+            <div *ngIf="!isLoading && products.length > 0" [ngClass]="viewMode === 'grid' ? 'products-grid' : 'products-list'">
+              <app-product-card *ngFor="let product of products" [product]="product" [viewMode]="viewMode"></app-product-card>
             </div>
 
             <!-- Load More -->
@@ -608,6 +608,13 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
     .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Products List */
+    .products-list {
+      display: flex;
+      flex-direction: column;
       gap: 1.5rem;
     }
 

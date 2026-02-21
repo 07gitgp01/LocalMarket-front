@@ -26,108 +26,384 @@ import { AuthService } from '@core/services/auth.service';
         MatMenuModule
     ],
     template: `
-    <mat-sidenav-container class="h-screen bg-gray-100">
-      
-      <!-- Sidenav -->
-      <mat-sidenav #sidenav mode="side" opened class="w-64 border-r !bg-gray-900 text-white shadow-xl">
-        
-        <div class="h-16 flex items-center px-6 border-b border-gray-700">
-           <span class="text-xl font-bold flex items-center gap-2 tracking-wider">
-             <mat-icon class="text-secondary">admin_panel_settings</mat-icon> ADMIN
-           </span>
+    <div class="dashboard-container">
+      <!-- Compact Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <div class="logo">
+            <mat-icon class="logo-icon">storefront</mat-icon>
+            <span class="logo-text">LocalMarket</span>
+          </div>
         </div>
 
-        <mat-nav-list class="pt-4 space-y-1">
-          <a mat-list-item routerLink="./analytics" routerLinkActive="!bg-gray-800 !text-secondary border-r-4 border-secondary" class="hover:bg-gray-800 text-gray-300 mx-0 rounded-none transition-all">
-             <mat-icon matListItemIcon class="">dashboard</mat-icon>
-             <span matListItemTitle>Vue d'ensemble</span>
-          </a>
-          
-          <div class="mt-6 px-6 text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Gestion</div>
-          
-          <a mat-list-item routerLink="./users" routerLinkActive="!bg-gray-800 !text-secondary border-r-4 border-secondary" class="hover:bg-gray-800 text-gray-300 mx-0 rounded-none transition-all">
-             <mat-icon matListItemIcon>people</mat-icon>
-             <span matListItemTitle>Utilisateurs</span>
-          </a>
-          <a mat-list-item routerLink="./products" routerLinkActive="!bg-gray-800 !text-secondary border-r-4 border-secondary" class="hover:bg-gray-800 text-gray-300 mx-0 rounded-none transition-all">
-             <mat-icon matListItemIcon>inventory_2</mat-icon>
-             <span matListItemTitle>Produits & Cats</span>
-          </a>
-          <a mat-list-item routerLink="./orders" routerLinkActive="!bg-gray-800 !text-secondary border-r-4 border-secondary" class="hover:bg-gray-800 text-gray-300 mx-0 rounded-none transition-all">
-             <mat-icon matListItemIcon>shopping_cart</mat-icon>
-             <span matListItemTitle>Commandes</span>
-          </a>
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <div class="nav-label">MAIN MENU</div>
+            <a routerLink="./analytics" routerLinkActive="active" class="nav-item">
+              <mat-icon>dashboard</mat-icon>
+              <span>Dashboard</span>
+            </a>
+          </div>
 
-          <div class="mt-6 px-6 text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Contenu</div>
+          <div class="nav-section">
+            <div class="nav-label">GESTION</div>
+            <a routerLink="./users" routerLinkActive="active" class="nav-item">
+              <mat-icon>people</mat-icon>
+              <span>Users</span>
+            </a>
+            <a routerLink="./vendors" routerLinkActive="active" class="nav-item">
+              <mat-icon>store</mat-icon>
+              <span>Vendors</span>
+            </a>
+            <a routerLink="./products" routerLinkActive="active" class="nav-item">
+              <mat-icon>inventory_2</mat-icon>
+              <span>Products</span>
+            </a>
+            <a routerLink="./orders" routerLinkActive="active" class="nav-item">
+              <mat-icon>shopping_cart</mat-icon>
+              <span>Orders</span>
+            </a>
+            <a routerLink="./regions" routerLinkActive="active" class="nav-item">
+              <mat-icon>map</mat-icon>
+              <span>Regions</span>
+            </a>
+          </div>
 
-          <a mat-list-item routerLink="./content" routerLinkActive="!bg-gray-800 !text-secondary border-r-4 border-secondary" class="hover:bg-gray-800 text-gray-300 mx-0 rounded-none transition-all">
-             <mat-icon matListItemIcon>article</mat-icon>
-             <span matListItemTitle>CMS & Bannières</span>
-          </a>
+          <div class="nav-section">
+            <div class="nav-label">SYSTÈME</div>
+            <a routerLink="./content" routerLinkActive="active" class="nav-item">
+              <mat-icon>article</mat-icon>
+              <span>Content</span>
+            </a>
+            <a routerLink="./system" routerLinkActive="active" class="nav-item">
+              <mat-icon>settings</mat-icon>
+              <span>Settings</span>
+            </a>
+          </div>
+        </nav>
 
-          <div class="mt-6 px-6 text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Système</div>
+        <div class="sidebar-footer">
+          <button mat-button class="logout-btn" (click)="logout()">
+            <mat-icon>logout</mat-icon>
+            <span>Log Out</span>
+          </button>
+        </div>
+      </aside>
 
-          <a mat-list-item routerLink="./system" routerLinkActive="!bg-gray-800 !text-secondary border-r-4 border-secondary" class="hover:bg-gray-800 text-gray-300 mx-0 rounded-none transition-all">
-             <mat-icon matListItemIcon>settings</mat-icon>
-             <span matListItemTitle>Configuration</span>
-          </a>
-        </mat-nav-list>
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+          <div class="header-left">
+            <h1 class="page-title">Analytics</h1>
+            <div class="breadcrumb">
+              <span>Full Statistics</span>
+              <span class="separator">•</span>
+              <span class="active">Results Summary</span>
+            </div>
+          </div>
 
-      </mat-sidenav>
+          <div class="header-right">
+            <button mat-icon-button class="header-btn">
+              <mat-icon>search</mat-icon>
+            </button>
+            <button mat-icon-button class="header-btn notification-btn">
+              <mat-icon>notifications_none</mat-icon>
+              <span class="badge">3</span>
+            </button>
+            <button mat-icon-button class="header-btn">
+              <mat-icon>add</mat-icon>
+            </button>
+            <button mat-button [matMenuTriggerFor]="userMenu" class="user-btn">
+              <div class="avatar">
+                <img src="https://ui-avatars.com/api/?name=Admin&background=4F46E5&color=fff" alt="Admin">
+              </div>
+            </button>
+            <mat-menu #userMenu="matMenu" class="user-menu">
+              <button mat-menu-item routerLink="/">
+                <mat-icon>home</mat-icon>
+                <span>Retour au site</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>person</mat-icon>
+                <span>Profile</span>
+              </button>
+              <mat-divider></mat-divider>
+              <button mat-menu-item (click)="logout()">
+                <mat-icon>logout</mat-icon>
+                <span>Déconnexion</span>
+              </button>
+            </mat-menu>
+          </div>
+        </header>
 
-      <!-- Content -->
-      <mat-sidenav-content class="flex flex-col min-h-screen">
-        
-        <!-- Top Toolbar -->
-        <mat-toolbar class="!bg-white border-b !h-16 shadow-none px-6 flex justify-between items-center z-10 sticky top-0">
-           <button mat-icon-button (click)="sidenav.toggle()" class="mr-4 lg:hidden text-gray-600">
-             <mat-icon>menu</mat-icon>
-           </button>
-           
-           <h1 class="text-lg font-medium text-gray-500">
-             Administration LocaleMarket
-           </h1>
-
-           <div class="flex items-center gap-4">
-             <button mat-icon-button>
-                <mat-icon class="text-gray-600">search</mat-icon>
-             </button>
-             <button mat-icon-button class="relative">
-               <mat-icon class="text-gray-600">notifications</mat-icon>
-               <span class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
-             </button>
-             
-             <button mat-button [matMenuTriggerFor]="adminMenu" class="!flex !items-center !gap-2 !px-2 rounded-full hover:bg-gray-100">
-               <div class="w-8 h-8 rounded-full bg-gray-800 text-white flex items-center justify-center font-bold">
-                 A
-               </div>
-               <span class="hidden sm:inline text-sm font-medium">Administrateur</span>
-               <mat-icon class="text-gray-500 icon-sm">arrow_drop_down</mat-icon>
-             </button>
-             <mat-menu #adminMenu="matMenu">
-               <button mat-menu-item routerLink="/">
-                 <mat-icon>home</mat-icon> Retour au site
-               </button>
-               <mat-divider></mat-divider>
-               <button mat-menu-item (click)="logout()" class="text-red-600">
-                 <mat-icon color="warn">logout</mat-icon> Déconnexion
-               </button>
-             </mat-menu>
-           </div>
-        </mat-toolbar>
-
-        <!-- Main View -->
-        <div class="p-8 overflow-y-auto flex-grow max-w-[1600px] mx-auto w-full">
+        <!-- Content Area -->
+        <div class="content-area">
           <router-outlet></router-outlet>
         </div>
-
-      </mat-sidenav-content>
-    </mat-sidenav-container>
+      </main>
+    </div>
   `,
     styles: [`
-    :host { display: block; height: 100vh; }
-    .icon-sm { font-size: 20px; width: 20px; height: 20px; }
-    ::ng-deep .mat-drawer-inner-container { overflow-x: hidden; }
+    :host {
+      display: block;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .dashboard-container {
+      display: flex;
+      height: 100vh;
+      background: #f8f9fa;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 240px;
+      background: #ffffff;
+      border-right: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .sidebar-header {
+      padding: 1.5rem 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      font-size: 32px;
+      color: #4F46E5;
+    }
+
+    .logo-text {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1f2937;
+      letter-spacing: -0.02em;
+    }
+
+    .sidebar-nav {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem 0.75rem;
+    }
+
+    .nav-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .nav-label {
+      font-size: 0.6875rem;
+      font-weight: 700;
+      color: #9ca3af;
+      letter-spacing: 0.05em;
+      padding: 0 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.625rem 0.75rem;
+      border-radius: 8px;
+      color: #6b7280;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+      margin-bottom: 0.25rem;
+    }
+
+    .nav-item mat-icon {
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      color: inherit;
+    }
+
+    .nav-item:hover {
+      background: #f3f4f6;
+      color: #4F46E5;
+    }
+
+    .nav-item.active {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+
+    .sidebar-footer {
+      padding: 1rem;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .logout-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.625rem 0.75rem;
+      color: #6b7280;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    .logout-btn:hover {
+      background: #fef2f2;
+      color: #dc2626;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .top-header {
+      background: white;
+      border-bottom: 1px solid #e5e7eb;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 72px;
+    }
+
+    .header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .page-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #1f2937;
+      margin: 0;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: #9ca3af;
+    }
+
+    .breadcrumb .separator {
+      color: #d1d5db;
+    }
+
+    .breadcrumb .active {
+      color: #4F46E5;
+      font-weight: 500;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .header-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: #f9fafb;
+      color: #6b7280;
+      transition: all 0.2s ease;
+    }
+
+    .header-btn:hover {
+      background: #f3f4f6;
+      color: #4F46E5;
+    }
+
+    .notification-btn {
+      position: relative;
+    }
+
+    .notification-btn .badge {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      background: #ef4444;
+      color: white;
+      font-size: 0.625rem;
+      font-weight: 700;
+      padding: 0.125rem 0.375rem;
+      border-radius: 10px;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    .user-btn {
+      padding: 0.25rem;
+      border-radius: 12px;
+      min-width: auto;
+    }
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 2px solid #e5e7eb;
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .content-area {
+      flex: 1;
+      overflow-y: auto;
+      padding: 2rem;
+      background: #f8f9fa;
+    }
+
+    /* Scrollbar */
+    .sidebar-nav::-webkit-scrollbar,
+    .content-area::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-track,
+    .content-area::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-thumb,
+    .content-area::-webkit-scrollbar-thumb {
+      background: #d1d5db;
+      border-radius: 3px;
+    }
+
+    .sidebar-nav::-webkit-scrollbar-thumb:hover,
+    .content-area::-webkit-scrollbar-thumb:hover {
+      background: #9ca3af;
+    }
+
+    ::ng-deep .user-menu {
+      margin-top: 0.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
   `]
 })
 export class AdminDashboardComponent {

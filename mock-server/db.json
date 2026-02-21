@@ -1285,7 +1285,7 @@
       "stock": 489,
       "minOrder": 1,
       "maxOrder": 67,
-      "rating": 5.0,
+      "rating": 5,
       "reviewCount": 190,
       "featured": false,
       "tags": [
@@ -1380,7 +1380,7 @@
       "stock": 452,
       "minOrder": 1,
       "maxOrder": 91,
-      "rating": 5.0,
+      "rating": 5,
       "reviewCount": 19,
       "featured": true,
       "tags": [
@@ -1412,7 +1412,7 @@
       "stock": 290,
       "minOrder": 1,
       "maxOrder": 96,
-      "rating": 5.0,
+      "rating": 5,
       "reviewCount": 140,
       "featured": false,
       "tags": [
@@ -1954,7 +1954,7 @@
       "stock": 461,
       "minOrder": 1,
       "maxOrder": 84,
-      "rating": 4.0,
+      "rating": 4,
       "reviewCount": 199,
       "featured": false,
       "tags": [
@@ -2826,7 +2826,7 @@
       "stock": 50,
       "minOrder": 1,
       "maxOrder": 91,
-      "rating": 4.0,
+      "rating": 4,
       "reviewCount": 161,
       "featured": false,
       "tags": [
@@ -2859,7 +2859,7 @@
       "stock": 21,
       "minOrder": 1,
       "maxOrder": 22,
-      "rating": 4.0,
+      "rating": 4,
       "reviewCount": 149,
       "featured": false,
       "tags": [
@@ -3114,7 +3114,7 @@
       "stock": 307,
       "minOrder": 1,
       "maxOrder": 85,
-      "rating": 5.0,
+      "rating": 5,
       "reviewCount": 67,
       "featured": false,
       "tags": [
@@ -3369,7 +3369,7 @@
       "stock": 436,
       "minOrder": 1,
       "maxOrder": 83,
-      "rating": 5.0,
+      "rating": 5,
       "reviewCount": 75,
       "featured": true,
       "tags": [
@@ -3464,7 +3464,7 @@
       "stock": 416,
       "minOrder": 1,
       "maxOrder": 32,
-      "rating": 5.0,
+      "rating": 5,
       "reviewCount": 23,
       "featured": false,
       "tags": [
@@ -3527,7 +3527,7 @@
       "stock": 342,
       "minOrder": 1,
       "maxOrder": 73,
-      "rating": 4.0,
+      "rating": 4,
       "reviewCount": 141,
       "featured": false,
       "tags": [
@@ -3884,7 +3884,7 @@
       "stock": 421,
       "minOrder": 1,
       "maxOrder": 34,
-      "rating": 5.0,
+      "rating": 5,
       "reviewCount": 43,
       "featured": false,
       "tags": [
@@ -4012,7 +4012,7 @@
       "stock": 282,
       "minOrder": 1,
       "maxOrder": 34,
-      "rating": 4.0,
+      "rating": 4,
       "reviewCount": 34,
       "featured": false,
       "tags": [
@@ -4205,7 +4205,7 @@
       "stock": 306,
       "minOrder": 1,
       "maxOrder": 85,
-      "rating": 4.0,
+      "rating": 4,
       "reviewCount": 181,
       "featured": false,
       "tags": [
@@ -8083,7 +8083,7 @@
       "id": 5,
       "userId": 11,
       "productId": 1,
-      "quantity": 2,
+      "quantity": 3,
       "addedAt": "2026-02-11T05:53:41.878989"
     },
     {
@@ -8155,6 +8155,84 @@
       "productId": 61,
       "quantity": 5,
       "addedAt": "2026-02-10T11:53:41.878989"
+    },
+    {
+      "id": 1771258550638,
+      "userId": 2,
+      "productId": 5,
+      "quantity": 1,
+      "addedAt": "2026-02-16T16:15:50.638Z",
+      "product": {
+        "id": 5,
+        "vendorId": 9,
+        "name": "Mais Blanc",
+        "slug": "mais-blanc",
+        "description": "Mais Blanc de qualite superieure, produit local du Burkina Faso. Ideal pour vos preparations culinaires et besoins quotidiens.",
+        "category": "Cereales & Graines",
+        "subCategory": "Cereales",
+        "price": 15000,
+        "compareAtPrice": 17288,
+        "unit": "piece",
+        "images": [
+          "https://images.unsplash.com/photo-1560493676-04071c5f467b?w=800&q=80",
+          "https://images.unsplash.com/photo-1595855759920-86582396756a?w=800&q=80"
+        ],
+        "stock": 453,
+        "minOrder": 1,
+        "maxOrder": 47,
+        "rating": 4.5,
+        "reviewCount": 40,
+        "featured": true,
+        "tags": [
+          "certifie",
+          "traditionnel"
+        ],
+        "attributes": {
+          "origin": "Dedougou",
+          "certification": "Ecocert"
+        },
+        "isActive": true,
+        "createdAt": "2025-10-03T13:53:41.853996"
+      }
+    },
+    {
+      "id": 1771258738540,
+      "userId": 2,
+      "productId": 2,
+      "quantity": 1,
+      "addedAt": "2026-02-16T16:18:58.540Z",
+      "product": {
+        "id": 2,
+        "vendorId": 8,
+        "name": "Mil Blanc",
+        "slug": "mil-blanc",
+        "description": "Mil Blanc de qualite superieure, produit local du Burkina Faso. Ideal pour vos preparations culinaires et besoins quotidiens.",
+        "category": "Cereales & Graines",
+        "subCategory": "Cereales",
+        "price": 800,
+        "compareAtPrice": null,
+        "unit": "sac",
+        "images": [
+          "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&q=80",
+          "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80"
+        ],
+        "stock": 122,
+        "minOrder": 1,
+        "maxOrder": 40,
+        "rating": 4.5,
+        "reviewCount": 154,
+        "featured": true,
+        "tags": [
+          "certifie",
+          "artisanal"
+        ],
+        "attributes": {
+          "origin": "Tenkodogo",
+          "certification": null
+        },
+        "isActive": true,
+        "createdAt": "2025-11-10T13:53:41.853996"
+      }
     }
   ],
   "reviews": [
