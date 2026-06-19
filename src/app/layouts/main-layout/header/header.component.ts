@@ -1,6 +1,7 @@
 import { Component, computed, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive, Router } from '@angular/router';
+import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { FormsModule } from '@angular/forms';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -117,13 +118,87 @@ import { NotificationService } from '@core/services/notification.service';
             </a>
           </ng-template>
 
-          <!-- Mobile Menu -->
+              <!-- Mobile Menu Button -->
           <button mat-icon-button class="mobile-menu-btn" (click)="toggleMobileMenu()">
-            <mat-icon>menu</mat-icon>
+            <mat-icon>{{ mobileMenuOpen ? 'close' : 'menu' }}</mat-icon>
           </button>
         </div>
       </div>
     </header>
+
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" [class.active]="mobileMenuOpen" (click)="closeMobileMenu()"></div>
+
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu" [class.open]="mobileMenuOpen">
+      <div class="mobile-menu-header">
+        <div class="mobile-logo">
+          <mat-icon>storefront</mat-icon>
+          <span>LocalMarket<span class="bf">.bf</span></span>
+        </div>
+        <button mat-icon-button (click)="closeMobileMenu()" style="color:white">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+
+      <div class="mobile-search">
+        <div class="mob-search-wrap">
+          <mat-icon>search</mat-icon>
+          <input type="text" placeholder="Rechercher..." [(ngModel)]="searchQuery" (keyup.enter)="onSearch(); closeMobileMenu()">
+        </div>
+      </div>
+
+      <nav class="mobile-nav">
+        <a routerLink="/" class="mobile-nav-link" (click)="closeMobileMenu()">
+          <mat-icon>home</mat-icon> Accueil
+        </a>
+        <a routerLink="/products" class="mobile-nav-link" (click)="closeMobileMenu()">
+          <mat-icon>shopping_bag</mat-icon> Produits
+        </a>
+        <a routerLink="/vendors" class="mobile-nav-link" (click)="closeMobileMenu()">
+          <mat-icon>store</mat-icon> Vendeurs
+        </a>
+        <a routerLink="/regions" class="mobile-nav-link" (click)="closeMobileMenu()">
+          <mat-icon>place</mat-icon> Régions
+        </a>
+        <a routerLink="/cart" class="mobile-nav-link" (click)="closeMobileMenu()">
+          <mat-icon>shopping_cart</mat-icon> Panier
+          <span class="mob-cart-badge" *ngIf="cartCount() > 0">{{ cartCount() }}</span>
+        </a>
+      </nav>
+
+      <ng-container *ngIf="isAuthenticated(); else mobileLoginSection">
+        <div class="mobile-user-info">
+          <img [src]="userAvatar() || 'https://ui-avatars.com/api/?name=' + userName() + '&background=10b981&color=fff'" class="mob-avatar" alt="Avatar">
+          <div>
+            <div class="mob-user-name">{{ userName() }}</div>
+            <div class="mob-user-email">{{ userEmail() }}</div>
+          </div>
+        </div>
+        <div class="mobile-nav" style="border-top:1px solid #f3f4f6">
+          <a routerLink="/profile" class="mobile-nav-link" (click)="closeMobileMenu()">
+            <mat-icon>person</mat-icon> Mon Profil
+          </a>
+          <a routerLink="/orders" class="mobile-nav-link" (click)="closeMobileMenu()">
+            <mat-icon>receipt</mat-icon> Mes Commandes
+          </a>
+          <button class="mobile-nav-link logout-link" (click)="logout(); closeMobileMenu()">
+            <mat-icon>logout</mat-icon> Déconnexion
+          </button>
+        </div>
+      </ng-container>
+
+      <ng-template #mobileLoginSection>
+        <div class="mobile-auth">
+          <a routerLink="/auth/login" mat-flat-button color="primary" (click)="closeMobileMenu()">
+            <mat-icon>login</mat-icon> Connexion
+          </a>
+          <a routerLink="/auth/register" mat-stroked-button color="primary" (click)="closeMobileMenu()">
+            Créer un compte
+          </a>
+        </div>
+      </ng-template>
+    </div>
 
     <!-- Menus -->
     <mat-menu #regionMenu="matMenu" class="custom-menu">
@@ -503,12 +578,122 @@ import { NotificationService } from '@core/services/notification.service';
     .logout-btn {
       color: #ef4444 !important;
     }
+
+    /* ===== Mobile Menu ===== */
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 998;
+    }
+    .mobile-overlay.active { display: block; }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0;
+      width: 300px;
+      max-width: 85vw;
+      height: 100vh;
+      background: white;
+      z-index: 999;
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .mobile-menu.open { transform: translateX(0); }
+
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      background: linear-gradient(135deg,#10b981,#059669);
+      color: white;
+    }
+    .mobile-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    .mobile-logo mat-icon { font-size: 22px; width: 22px; height: 22px; }
+    .bf { font-size: 0.8rem; opacity: 0.9; }
+
+    .mobile-search { padding: 0.75rem 1rem; border-bottom: 1px solid #f3f4f6; }
+    .mob-search-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+    }
+    .mob-search-wrap input {
+      flex: 1; border: none; background: transparent; outline: none; font-size: 0.9rem;
+    }
+    .mob-search-wrap mat-icon { color: #9ca3af; font-size: 20px; }
+
+    .mobile-nav { display: flex; flex-direction: column; }
+    .mobile-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.875rem 1.25rem;
+      color: #374151;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+    }
+    .mobile-nav-link:hover { background: #f0fdf4; color: #10b981; }
+    .mobile-nav-link mat-icon { font-size: 20px; width: 20px; height: 20px; color: #6b7280; }
+    .mobile-nav-link:hover mat-icon { color: #10b981; }
+
+    .mob-cart-badge {
+      margin-left: auto;
+      background: #ef4444;
+      color: white;
+      border-radius: 50%;
+      width: 20px; height: 20px;
+      font-size: 0.7rem;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+    }
+    .mobile-user-info {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.875rem 1.25rem;
+      background: #f9fafb;
+      border-top: 1px solid #e5e7eb;
+    }
+    .mob-avatar { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; }
+    .mob-user-name { font-weight: 600; font-size: 0.9rem; color: #1f2937; }
+    .mob-user-email { font-size: 0.75rem; color: #6b7280; }
+    .logout-link { color: #ef4444 !important; }
+    .logout-link mat-icon { color: #ef4444 !important; }
+
+    .mobile-auth {
+      padding: 1rem 1.25rem;
+      display: flex; flex-direction: column; gap: 0.75rem;
+      border-top: 1px solid #e5e7eb;
+      margin-top: auto;
+    }
   `]
 })
 export class HeaderComponent {
   searchQuery = '';
   selectedRegion = 'Burkina Faso';
   isScrolled = false;
+  mobileMenuOpen = false;
 
   // Signals
   cartCount = this.cartService.itemCount;
@@ -527,7 +712,11 @@ export class HeaderComponent {
     private cartService: CartService,
     private router: Router,
     private notification: NotificationService
-  ) { }
+  ) {
+    this.router.events.pipe(filter(e => e instanceof NavigationEnd)).subscribe(() => {
+      this.mobileMenuOpen = false;
+    });
+  }
 
   @HostListener('window:scroll')
   onWindowScroll() {
@@ -550,6 +739,10 @@ export class HeaderComponent {
   }
 
   toggleMobileMenu() {
-    this.notification.info('Menu mobile à venir');
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  closeMobileMenu() {
+    this.mobileMenuOpen = false;
   }
 }

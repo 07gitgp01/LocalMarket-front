@@ -61,40 +61,50 @@ export class CartService {
         const existingItem = currentItems.find(item => item.productId === product.id);
 
         if (existingItem) {
+            // Update quantity locally; server sync handled in updateQuantity
             this.updateQuantity(existingItem.id, existingItem.quantity + quantity);
         } else {
+            const tempId = Date.now();
             const newItem: CartItem = {
-                id: Date.now(), // Temp ID
+                id: tempId,
                 userId: this.auth.currentUser()?.id || 0,
                 productId: product.id,
                 quantity,
                 addedAt: new Date().toISOString(),
-                product: product // Stocker le produit complet pour affichage
+                product: product
             };
 
+            // Optimistic: add immediately with temp ID
+            this.cartItemsSignal.update(items => [...items, newItem]);
+            this.notification.success('Produit ajouté au panier');
+
             if (this.auth.isAuthenticated()) {
-                this.api.post<CartItem>('/cart', newItem).subscribe(addedItem => {
-                    this.cartItemsSignal.update(items => [...items, { ...newItem, id: addedItem.id }]);
-                    this.notification.success('Produit ajouté au panier');
+                // Replace temp ID with real server ID once POST completes
+                this.api.post<CartItem>('/cart', newItem).subscribe({
+                    next: (addedItem) => {
+                        this.cartItemsSignal.update(items =>
+                            items.map(i => i.id === tempId ? { ...i, id: addedItem.id } : i)
+                        );
+                    },
+                    error: () => console.warn('Cart sync: could not persist new item to server')
                 });
             } else {
-                this.cartItemsSignal.update(items => [...items, newItem]);
                 this.saveGuestCart();
-                this.notification.success('Produit ajouté au panier');
             }
         }
     }
 
     removeFromCart(itemId: number): void {
+        // Optimistic update
+        this.cartItemsSignal.update(items => items.filter(i => i.id !== itemId));
+        this.notification.info('Produit retiré du panier');
+
         if (this.auth.isAuthenticated()) {
-            this.api.delete(`/cart/${itemId}`).subscribe(() => {
-                this.cartItemsSignal.update(items => items.filter(i => i.id !== itemId));
-                this.notification.info('Produit retiré du panier');
+            this.api.delete(`/cart/${itemId}`).subscribe({
+                error: () => console.warn(`Cart sync: could not delete item ${itemId} from server`)
             });
         } else {
-            this.cartItemsSignal.update(items => items.filter(i => i.id !== itemId));
             this.saveGuestCart();
-            this.notification.info('Produit retiré du panier');
         }
     }
 
@@ -104,16 +114,16 @@ export class CartService {
             return;
         }
 
+        // Optimistic update — UI responds immediately regardless of server sync
+        this.cartItemsSignal.update(items =>
+            items.map(item => item.id === itemId ? { ...item, quantity } : item)
+        );
+
         if (this.auth.isAuthenticated()) {
-            this.api.patch<CartItem>(`/cart/${itemId}`, { quantity }).subscribe(() => {
-                this.cartItemsSignal.update(items =>
-                    items.map(item => item.id === itemId ? { ...item, quantity } : item)
-                );
+            this.api.patch<CartItem>(`/cart/${itemId}`, { quantity }).subscribe({
+                error: () => console.warn(`Cart sync: item ${itemId} not found on server, state kept locally`)
             });
         } else {
-            this.cartItemsSignal.update(items =>
-                items.map(item => item.id === itemId ? { ...item, quantity } : item)
-            );
             this.saveGuestCart();
         }
     }

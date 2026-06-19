@@ -17,7 +17,7 @@ import { FooterComponent } from './footer/footer.component';
     <div class="flex flex-col min-h-screen bg-gray-50">
       <app-header></app-header>
       
-      <main class="flex-grow container mx-auto px-4 py-6 md:py-8">
+      <main class="flex-grow min-h-0 flex flex-col">
         <router-outlet></router-outlet>
       </main>
       

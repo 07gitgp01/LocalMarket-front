@@ -30,11 +30,14 @@ export class ProductService {
             return this.api.get<Product[]>('/products/search', params);
         }
 
-        return this.api.get<Product[]>('/products');
+        // _expand=vendor joint automatiquement les données vendeur via json-server
+        const baseParams = new HttpParams().set('_expand', 'vendor');
+        return this.api.get<Product[]>('/products', baseParams);
     }
 
     getProduct(id: number | string): Observable<Product> {
-        return this.api.get<Product>(`/products/${id}`);
+        const params = new HttpParams().set('_expand', 'vendor');
+        return this.api.get<Product>(`/products/${id}`, params);
     }
 
     createProduct(product: Omit<Product, 'id'>): Observable<Product> {

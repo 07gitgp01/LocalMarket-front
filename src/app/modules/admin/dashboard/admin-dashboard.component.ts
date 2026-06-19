@@ -27,8 +27,11 @@ import { AuthService } from '@core/services/auth.service';
     ],
     template: `
     <div class="dashboard-container">
+      <!-- Mobile sidebar overlay -->
+      <div class="sidebar-overlay" *ngIf="sidebarOpen" (click)="sidebarOpen = false"></div>
+
       <!-- Compact Sidebar -->
-      <aside class="sidebar">
+      <aside class="sidebar" [class.mobile-open]="sidebarOpen">
         <div class="sidebar-header">
           <div class="logo">
             <mat-icon class="logo-icon">storefront</mat-icon>
@@ -95,6 +98,9 @@ import { AuthService } from '@core/services/auth.service';
         <!-- Top Header -->
         <header class="top-header">
           <div class="header-left">
+            <button mat-icon-button class="hamburger-btn" (click)="sidebarOpen = !sidebarOpen">
+              <mat-icon>menu</mat-icon>
+            </button>
             <h1 class="page-title">Analytics</h1>
             <div class="breadcrumb">
               <span>Full Statistics</span>
@@ -146,15 +152,18 @@ import { AuthService } from '@core/services/auth.service';
   `,
     styles: [`
     :host {
-      display: block;
-      height: 100vh;
+      display: flex;
+      flex: 1;
+      min-height: 0;
       overflow: hidden;
     }
 
     .dashboard-container {
       display: flex;
-      height: 100vh;
+      flex: 1;
+      height: 100%;
       background: #f8f9fa;
+      min-height: 0;
     }
 
     /* Sidebar */
@@ -404,10 +413,42 @@ import { AuthService } from '@core/services/auth.service';
       border-radius: 12px;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     }
+
+    /* Responsive sidebar */
+    .hamburger-btn { display: none; }
+
+    @media (max-width: 768px) {
+      .hamburger-btn { display: inline-flex; margin-right: 0.5rem; }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        height: 100vh;
+        z-index: 1000;
+        transition: left 0.3s ease;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .sidebar.mobile-open {
+        left: 0;
+      }
+
+      .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 999;
+      }
+
+      .top-header { padding: 0.75rem 1rem; }
+      .content-area { padding: 1rem; }
+    }
   `]
 })
 export class AdminDashboardComponent {
     authService = inject(AuthService);
+    sidebarOpen = false;
 
     logout() {
         this.authService.logout();

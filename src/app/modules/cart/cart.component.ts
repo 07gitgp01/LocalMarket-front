@@ -1,4 +1,4 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -7,8 +7,34 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatDialog, MatDialogModule, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 import { CartService } from '@core/services/cart.service';
+import { NotificationService } from '@core/services/notification.service';
+
+const PROMO_CODES: Record<string, { discount: number; label: string }> = {
+  'welcome10': { discount: 0.10, label: '10%' },
+  'save20':    { discount: 0.20, label: '20%' },
+  'promo15':   { discount: 0.15, label: '15%' },
+  'localmarket': { discount: 0.05, label: '5%' }
+};
+
+@Component({
+  selector: 'app-cart-confirm-dialog',
+  standalone: true,
+  imports: [MatButtonModule, MatDialogModule],
+  template: `
+    <h2 mat-dialog-title>{{ data.title }}</h2>
+    <mat-dialog-content><p>{{ data.message }}</p></mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Annuler</button>
+      <button mat-flat-button color="warn" [mat-dialog-close]="true">Confirmer</button>
+    </mat-dialog-actions>
+  `
+})
+export class CartConfirmDialogComponent {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { title: string; message: string }) {}
+}
 
 @Component({
   selector: 'app-cart',
@@ -21,7 +47,8 @@ import { CartService } from '@core/services/cart.service';
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    MatDividerModule
+    MatDividerModule,
+    MatDialogModule
   ],
   template: `
     <div class="cart-container">
@@ -126,14 +153,18 @@ import { CartService } from '@core/services/cart.service';
           <!-- Cart Actions -->
           <div class="cart-actions">
             <div class="coupon-section">
-              <input 
-                type="text" 
-                class="coupon-input" 
-                placeholder="Code promo"
+              <input
+                type="text"
+                class="coupon-input"
+                placeholder="Code promo (ex: SAVE20)"
                 [(ngModel)]="promoCode"
+                [disabled]="!!appliedCode"
               >
-              <button mat-stroked-button class="apply-coupon-btn" (click)="applyCoupon()">
-                Appliquer le coupon
+              <button mat-stroked-button class="apply-coupon-btn" (click)="applyCoupon()" *ngIf="!appliedCode">
+                Appliquer
+              </button>
+              <button mat-stroked-button color="warn" class="apply-coupon-btn" (click)="removeCoupon()" *ngIf="appliedCode">
+                <mat-icon>close</mat-icon> Retirer
               </button>
             </div>
             <button mat-stroked-button color="warn" class="clear-cart-btn" (click)="clearCart()">
@@ -751,12 +782,18 @@ export class CartComponent {
   subtotal = this.cartService.totalAmount;
 
   shippingCost = 2000;
-  discount = 0;
+  discountRate = 0;
+  appliedCode = '';
   promoCode = '';
 
-  total = computed(() => this.subtotal() + this.shippingCost - this.discount);
+  discountAmount = computed(() => this.subtotal() * this.discountRate);
+  total = computed(() => this.subtotal() + this.shippingCost - this.discountAmount());
 
-  constructor(private cartService: CartService) { }
+  constructor(
+    private cartService: CartService,
+    private notification: NotificationService,
+    private dialog: MatDialog
+  ) { }
 
   updateQuantity(productId: number, quantity: number) {
     if (quantity > 0) {
@@ -776,17 +813,42 @@ export class CartComponent {
   }
 
   clearCart() {
-    if (confirm('Êtes-vous sûr de vouloir vider votre panier ?')) {
-      this.cartService.clearCart();
-    }
+    this.dialog.open(CartConfirmDialogComponent, {
+      data: { title: 'Vider le panier', message: 'Êtes-vous sûr de vouloir supprimer tous les articles de votre panier ?' },
+      width: '400px'
+    }).afterClosed().subscribe(confirmed => {
+      if (confirmed) {
+        this.cartService.clearCart();
+        this.removeCoupon();
+        this.notification.info('Panier vidé');
+      }
+    });
   }
 
   applyCoupon() {
-    if (this.promoCode.toLowerCase() === 'welcome10') {
-      this.discount = this.subtotal() * 0.1;
-      alert('Code promo appliqué ! -10% de réduction');
-    } else if (this.promoCode) {
-      alert('Code promo invalide');
+    const code = this.promoCode.trim().toLowerCase();
+    if (!code) {
+      this.notification.warning('Veuillez entrer un code promo');
+      return;
     }
+    const promo = PROMO_CODES[code];
+    if (promo) {
+      this.discountRate = promo.discount;
+      this.appliedCode = this.promoCode.trim().toUpperCase();
+      this.notification.success(`Code "${this.appliedCode}" appliqué ! -${promo.label} de réduction`, 'Code Promo');
+    } else {
+      this.notification.error('Code promo invalide ou expiré', 'Code Promo');
+    }
+  }
+
+  removeCoupon() {
+    this.discountRate = 0;
+    this.appliedCode = '';
+    this.promoCode = '';
+    this.notification.info('Code promo retiré');
+  }
+
+  get discount() {
+    return this.discountAmount();
   }
 }

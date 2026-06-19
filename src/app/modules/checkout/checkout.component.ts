@@ -253,6 +253,17 @@ import { CheckoutData, PaymentMethod } from '@shared/models/order.model';
   `,
     styles: [`
     :host { display: block; }
+
+    /* Responsive stepper labels on small screens */
+    @media (max-width: 600px) {
+      ::ng-deep .mat-step-label { font-size: 0.75rem !important; }
+      ::ng-deep .mat-stepper-horizontal-line { flex: 0 !important; min-width: 8px !important; }
+      ::ng-deep .mat-step-header { padding: 0 8px !important; }
+    }
+
+    @media (max-width: 480px) {
+      ::ng-deep .mat-step-label-content { display: none !important; }
+    }
   `]
 })
 export class CheckoutComponent implements OnInit {

@@ -1,6 +1,7 @@
+const path = require('path');
 const jsonServer = require('json-server');
 const server = jsonServer.create();
-const router = jsonServer.router('db.json');
+const router = jsonServer.router(path.join(__dirname, 'db.json'));
 const middlewares = jsonServer.defaults();
 const PORT = process.env.PORT || 3000;
 
@@ -26,15 +27,16 @@ server.get('/api/health', (req, res) => {
 
 // Route de recherche de produits
 server.get('/api/products/search', (req, res) => {
-    const { q, category, minPrice, maxPrice, vendorId, featured } = req.query;
+    const { q, category, minPrice, maxPrice, vendorId, featured, _sort, _order } = req.query;
     let products = router.db.get('products').value();
+    const vendors = router.db.get('vendors').value();
 
     if (q) {
         const query = q.toLowerCase();
         products = products.filter(p =>
             p.name.toLowerCase().includes(query) ||
             p.description.toLowerCase().includes(query) ||
-            p.tags.some(tag => tag.toLowerCase().includes(query))
+            (p.tags || []).some(tag => tag.toLowerCase().includes(query))
         );
     }
 
@@ -57,6 +59,22 @@ server.get('/api/products/search', (req, res) => {
     if (featured === 'true') {
         products = products.filter(p => p.featured === true);
     }
+
+    // Tri
+    if (_sort) {
+        const order = _order === 'desc' ? -1 : 1;
+        products = [...products].sort((a, b) => {
+            if (a[_sort] < b[_sort]) return -1 * order;
+            if (a[_sort] > b[_sort]) return 1 * order;
+            return 0;
+        });
+    }
+
+    // Joindre les données vendeur (équivalent de _expand=vendor)
+    products = products.map(p => ({
+        ...p,
+        vendor: vendors.find(v => v.id === p.vendorId) || null
+    }));
 
     res.json(products);
 });
@@ -85,39 +103,44 @@ server.get('/api/stats', (req, res) => {
 
 // Route de login simple (pour développement)
 server.post('/api/auth/login', (req, res) => {
-    const { email, password } = req.body;
-    const users = router.db.get('users').value();
+    try {
+        const body = req.body || {};
+        const { email, password } = body;
 
-    // Note: En production, utilisez un vrai système d'auth avec hash de mot de passe
-    const user = users.find(u => u.email === email);
-
-    if (!user) {
-        return res.status(401).json({ error: 'User not found' });
-    }
-
-    // Pour le développement, on accepte tous les mots de passe
-    // En production, vérifiez le hash bcrypt du password
-
-    // Créer un faux JWT token
-    const token = Buffer.from(JSON.stringify({
-        userId: user.id,
-        email: user.email,
-        role: user.role,
-        exp: Date.now() + 86400000 // 24h
-    })).toString('base64');
-
-    res.json({
-        accessToken: token,
-        user: {
-            id: user.id,
-            email: user.email,
-            firstName: user.firstName,
-            lastName: user.lastName,
-            role: user.role,
-            phone: user.phone,
-            avatar: user.avatar
+        if (!email) {
+            return res.status(400).json({ error: 'Email requis' });
         }
-    });
+
+        const users = router.db.get('users').value() || [];
+        const user = users.find(u => u.email === email);
+
+        if (!user) {
+            return res.status(401).json({ error: 'Utilisateur introuvable' });
+        }
+
+        const token = Buffer.from(JSON.stringify({
+            userId: user.id,
+            email: user.email,
+            role: user.role,
+            exp: Date.now() + 86400000
+        })).toString('base64');
+
+        res.json({
+            accessToken: token,
+            user: {
+                id: user.id,
+                email: user.email,
+                firstName: user.firstName || '',
+                lastName: user.lastName || '',
+                role: user.role || 'customer',
+                phone: user.phone || '',
+                avatar: user.avatar || null
+            }
+        });
+    } catch (err) {
+        console.error('[LOGIN ERROR]', err.message);
+        res.status(500).json({ error: err.message });
+    }
 });
 
 // Route d'inscription simple

@@ -555,16 +555,24 @@
     {
       "id": 1,
       "name": "Centre",
+      "code": "CEN",
       "capital": "Ouagadougou",
       "population": 2415266,
       "area": 2805,
       "provinces": [
         "Kadiogo"
-      ]
+      ],
+      "coordinates": {
+        "lat": 12.3714,
+        "lng": -1.5197
+      },
+      "deliveryFee": 500,
+      "isActive": true
     },
     {
       "id": 2,
       "name": "Hauts-Bassins",
+      "code": "HBS",
       "capital": "Bobo-Dioulasso",
       "population": 1703668,
       "area": 25575,
@@ -572,11 +580,18 @@
         "Houet",
         "Kenedougou",
         "Tuy"
-      ]
+      ],
+      "coordinates": {
+        "lat": 11.1771,
+        "lng": -4.2979
+      },
+      "deliveryFee": 1000,
+      "isActive": true
     },
     {
       "id": 3,
       "name": "Centre-Ouest",
+      "code": "COE",
       "capital": "Koudougou",
       "population": 1522910,
       "area": 21691,
@@ -585,11 +600,18 @@
         "Sanguie",
         "Sissili",
         "Ziro"
-      ]
+      ],
+      "coordinates": {
+        "lat": 12.3686,
+        "lng": -2.3628
+      },
+      "deliveryFee": 1500,
+      "isActive": true
     },
     {
       "id": 4,
       "name": "Nord",
+      "code": "NOR",
       "capital": "Ouahigouya",
       "population": 1385107,
       "area": 17958,
@@ -598,11 +620,18 @@
         "Passore",
         "Yatenga",
         "Zondoma"
-      ]
+      ],
+      "coordinates": {
+        "lat": 13.5728,
+        "lng": -2.4134
+      },
+      "deliveryFee": 2000,
+      "isActive": true
     },
     {
       "id": 5,
       "name": "Est",
+      "code": "EST",
       "capital": "Fada N'Gourma",
       "population": 1572206,
       "area": 46707,
@@ -612,11 +641,18 @@
         "Komandjoari",
         "Kompienga",
         "Tapoa"
-      ]
+      ],
+      "coordinates": {
+        "lat": 12.0605,
+        "lng": 0.3498
+      },
+      "deliveryFee": 2500,
+      "isActive": true
     },
     {
       "id": 6,
       "name": "Sud-Ouest",
+      "code": "SOE",
       "capital": "Gaoua",
       "population": 741197,
       "area": 16153,
@@ -625,22 +661,36 @@
         "Ioba",
         "Noumbiel",
         "Poni"
-      ]
+      ],
+      "coordinates": {
+        "lat": 10.3247,
+        "lng": -3.1707
+      },
+      "deliveryFee": 2000,
+      "isActive": true
     },
     {
       "id": 7,
       "name": "Cascades",
+      "code": "CAS",
       "capital": "Banfora",
       "population": 716561,
       "area": 15415,
       "provinces": [
         "Comoe",
         "Leraba"
-      ]
+      ],
+      "coordinates": {
+        "lat": 10.638,
+        "lng": -4.7681
+      },
+      "deliveryFee": 2500,
+      "isActive": true
     },
     {
       "id": 8,
       "name": "Sahel",
+      "code": "SAH",
       "capital": "Dori",
       "population": 1446570,
       "area": 35820,
@@ -649,11 +699,18 @@
         "Seno",
         "Soum",
         "Yagha"
-      ]
+      ],
+      "coordinates": {
+        "lat": 14.0351,
+        "lng": 0.0347
+      },
+      "deliveryFee": 3000,
+      "isActive": true
     },
     {
       "id": 9,
       "name": "Plateau-Central",
+      "code": "PLC",
       "capital": "Ziniare",
       "population": 771606,
       "area": 8575,
@@ -661,11 +718,18 @@
         "Ganzourgou",
         "Kourweogo",
         "Oubritenga"
-      ]
+      ],
+      "coordinates": {
+        "lat": 12.5832,
+        "lng": -1.2864
+      },
+      "deliveryFee": 1000,
+      "isActive": true
     },
     {
       "id": 10,
       "name": "Centre-Nord",
+      "code": "CNO",
       "capital": "Kaya",
       "population": 1599354,
       "area": 19508,
@@ -673,7 +737,73 @@
         "Bam",
         "Namentenga",
         "Sanmatenga"
-      ]
+      ],
+      "coordinates": {
+        "lat": 13.0888,
+        "lng": -1.0921
+      },
+      "deliveryFee": 1500,
+      "isActive": true
+    },
+    {
+      "id": 11,
+      "name": "Centre-Est",
+      "code": "CES",
+      "capital": "Tenkodogo",
+      "population": 1193227,
+      "area": 14442,
+      "provinces": [
+        "Boulgou",
+        "Koulpelogo",
+        "Kouritenga"
+      ],
+      "coordinates": {
+        "lat": 11.7891,
+        "lng": -0.3613
+      },
+      "deliveryFee": 2000,
+      "isActive": true
+    },
+    {
+      "id": 12,
+      "name": "Boucle du Mouhoun",
+      "code": "BMO",
+      "capital": "Dédougou",
+      "population": 1507755,
+      "area": 34497,
+      "provinces": [
+        "Balé",
+        "Banwa",
+        "Kossi",
+        "Mouhoun",
+        "Nayala",
+        "Sourou"
+      ],
+      "coordinates": {
+        "lat": 12.4625,
+        "lng": -3.4658
+      },
+      "deliveryFee": 2000,
+      "isActive": true
+    },
+    {
+      "id": 13,
+      "name": "Centre-Sud",
+      "code": "CSU",
+      "capital": "Manga",
+      "population": 849050,
+      "area": 15960,
+      "provinces": [
+        "Bazega",
+        "Nahouri",
+        "Zoundweogo"
+      ],
+      "coordinates": {
+        "lat": 11.6655,
+        "lng": -1.0677
+      },
+      "deliveryFee": 1500,
+      "isActive": true
     }
   ],
   "categories": [
@@ -807,8 +937,8 @@
         "city": "Koudougou",
         "region": "Nord",
         "coordinates": {
-          "lat": 11.5218,
-          "lng": 0.6977
+          "lat": 12.38,
+          "lng": -2.37
         }
       },
       "contact": {
@@ -883,8 +1013,8 @@
         "city": "Koudougou",
         "region": "Centre",
         "coordinates": {
-          "lat": 14.9401,
-          "lng": -0.5658
+          "lat": 12.42,
+          "lng": -2.32
         }
       },
       "contact": {
@@ -921,8 +1051,8 @@
         "city": "Ouagadougou",
         "region": "Centre",
         "coordinates": {
-          "lat": 11.8547,
-          "lng": -3.9788
+          "lat": 12.36,
+          "lng": -1.52
         }
       },
       "contact": {
@@ -959,8 +1089,8 @@
         "city": "Koudougou",
         "region": "Nord",
         "coordinates": {
-          "lat": 12.0459,
-          "lng": 1.7908
+          "lat": 12.05,
+          "lng": 0.37
         }
       },
       "contact": {
@@ -997,8 +1127,8 @@
         "city": "Bobo-Dioulasso",
         "region": "Hauts-Bassins",
         "coordinates": {
-          "lat": 9.428,
-          "lng": 1.5558
+          "lat": 11.178,
+          "lng": -4.298
         }
       },
       "contact": {
@@ -1073,8 +1203,8 @@
         "city": "Kaya",
         "region": "Centre",
         "coordinates": {
-          "lat": 13.7771,
-          "lng": 1.5586
+          "lat": 13.09,
+          "lng": -1.09
         }
       },
       "contact": {
@@ -1111,8 +1241,8 @@
         "city": "Koudougou",
         "region": "Centre-Ouest",
         "coordinates": {
-          "lat": 14.3199,
-          "lng": -4.9409
+          "lat": 12.365,
+          "lng": -2.362
         }
       },
       "contact": {
@@ -1149,8 +1279,8 @@
         "city": "Dedougou",
         "region": "Nord",
         "coordinates": {
-          "lat": 10.1196,
-          "lng": -1.2323
+          "lat": 12.46,
+          "lng": -3.47
         }
       },
       "contact": {
@@ -7232,7 +7362,7 @@
       "id": 45,
       "userId": 7,
       "orderNumber": "ORD-BF-2024-0045",
-      "status": "pending",
+      "status": "processing",
       "items": [
         {
           "productId": 41,
@@ -8048,190 +8178,351 @@
       "createdAt": "2025-11-20T13:53:41.872994",
       "updatedAt": "2025-11-23T04:53:41.872994",
       "estimatedDeliveryDate": "2026-02-18T13:53:41.872994"
+    },
+    {
+      "userId": 2,
+      "orderNumber": "ORD-1781791672772",
+      "status": "pending",
+      "items": [
+        {
+          "productId": 68,
+          "quantity": 5,
+          "price": 0,
+          "total": 0,
+          "name": "Produit",
+          "vendorId": 0
+        },
+        {
+          "productId": 36,
+          "quantity": 3,
+          "price": 0,
+          "total": 0,
+          "name": "Produit",
+          "vendorId": 0
+        },
+        {
+          "productId": 79,
+          "quantity": 1,
+          "price": 0,
+          "total": 0,
+          "name": "Produit",
+          "vendorId": 0
+        },
+        {
+          "productId": 16,
+          "quantity": 3,
+          "price": 0,
+          "total": 0,
+          "name": "Produit",
+          "vendorId": 0
+        },
+        {
+          "productId": 1,
+          "quantity": 3,
+          "price": 0,
+          "total": 0,
+          "name": "Produit",
+          "vendorId": 0
+        },
+        {
+          "productId": 16,
+          "quantity": 1,
+          "price": 0,
+          "total": 0,
+          "name": "Produit",
+          "vendorId": 0
+        },
+        {
+          "productId": 8,
+          "quantity": 5,
+          "price": 0,
+          "total": 0,
+          "name": "Produit",
+          "vendorId": 0
+        },
+        {
+          "productId": 4,
+          "quantity": 6,
+          "price": 0,
+          "total": 0,
+          "name": "Produit",
+          "vendorId": 0
+        },
+        {
+          "productId": 85,
+          "quantity": 2,
+          "price": 0,
+          "total": 0,
+          "name": "Produit",
+          "vendorId": 0
+        },
+        {
+          "productId": 72,
+          "quantity": 4,
+          "price": 0,
+          "total": 0,
+          "name": "Produit",
+          "vendorId": 0
+        },
+        {
+          "productId": 60,
+          "quantity": 3,
+          "price": 0,
+          "total": 0,
+          "name": "Produit",
+          "vendorId": 0
+        },
+        {
+          "productId": 110,
+          "quantity": 2,
+          "price": 0,
+          "total": 0,
+          "name": "Produit",
+          "vendorId": 0
+        },
+        {
+          "productId": 51,
+          "quantity": 4,
+          "price": 0,
+          "total": 0,
+          "name": "Produit",
+          "vendorId": 0
+        },
+        {
+          "productId": 56,
+          "quantity": 3,
+          "price": 0,
+          "total": 0,
+          "name": "Produit",
+          "vendorId": 0
+        },
+        {
+          "productId": 61,
+          "quantity": 5,
+          "price": 0,
+          "total": 0,
+          "name": "Produit",
+          "vendorId": 0
+        },
+        {
+          "productId": 5,
+          "quantity": 1,
+          "price": 15000,
+          "total": 15000,
+          "name": "Mais Blanc",
+          "vendorId": 9
+        },
+        {
+          "productId": 2,
+          "quantity": 1,
+          "price": 800,
+          "total": 800,
+          "name": "Mil Blanc",
+          "vendorId": 8
+        }
+      ],
+      "subtotal": 15800,
+      "shippingCost": 500,
+      "tax": 0,
+      "discount": 0,
+      "total": 16300,
+      "paymentMethod": "orange_money",
+      "paymentStatus": "pending",
+      "shippingAddress": {
+        "street": "ddsdd",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "00000",
+        "country": "Burkina Faso"
+      },
+      "createdAt": "2026-06-18T14:07:52.773Z",
+      "id": 61
+    },
+    {
+      "userId": 5,
+      "orderNumber": "ORD-1781813432559",
+      "status": "pending",
+      "items": [
+        {
+          "productId": 25,
+          "quantity": 5,
+          "price": 35000,
+          "total": 175000,
+          "name": "Piments Verts",
+          "vendorId": 3
+        }
+      ],
+      "subtotal": 175000,
+      "shippingCost": 2000,
+      "tax": 0,
+      "discount": 0,
+      "total": 177000,
+      "paymentMethod": "wave",
+      "paymentStatus": "pending",
+      "shippingAddress": {
+        "street": "bb",
+        "city": "Kaya",
+        "region": "Centre",
+        "postalCode": "00000",
+        "country": "Burkina Faso"
+      },
+      "createdAt": "2026-06-18T20:10:32.559Z",
+      "id": 62
     }
   ],
   "cart": [
     {
-      "id": 1,
-      "userId": 4,
-      "productId": 68,
-      "quantity": 5,
-      "addedAt": "2026-02-09T15:53:41.877991"
-    },
-    {
-      "id": 2,
-      "userId": 7,
-      "productId": 36,
-      "quantity": 3,
-      "addedAt": "2026-02-11T21:53:41.878989"
-    },
-    {
-      "id": 3,
-      "userId": 18,
-      "productId": 79,
-      "quantity": 1,
-      "addedAt": "2026-02-11T12:53:41.878989"
-    },
-    {
-      "id": 4,
-      "userId": 7,
-      "productId": 16,
-      "quantity": 3,
-      "addedAt": "2026-02-10T11:53:41.878989"
-    },
-    {
-      "id": 5,
-      "userId": 11,
-      "productId": 1,
-      "quantity": 3,
-      "addedAt": "2026-02-11T05:53:41.878989"
-    },
-    {
-      "id": 6,
-      "userId": 4,
-      "productId": 16,
-      "quantity": 1,
-      "addedAt": "2026-02-10T07:53:41.878989"
-    },
-    {
-      "id": 7,
-      "userId": 18,
-      "productId": 8,
-      "quantity": 5,
-      "addedAt": "2026-02-10T10:53:41.878989"
-    },
-    {
-      "id": 8,
-      "userId": 12,
+      "id": 1781829190733,
+      "userId": 5,
       "productId": 4,
-      "quantity": 5,
-      "addedAt": "2026-02-11T05:53:41.878989"
-    },
-    {
-      "id": 9,
-      "userId": 11,
-      "productId": 85,
-      "quantity": 2,
-      "addedAt": "2026-02-09T22:53:41.878989"
-    },
-    {
-      "id": 10,
-      "userId": 3,
-      "productId": 72,
-      "quantity": 4,
-      "addedAt": "2026-02-11T13:53:41.878989"
-    },
-    {
-      "id": 11,
-      "userId": 15,
-      "productId": 60,
-      "quantity": 3,
-      "addedAt": "2026-02-11T05:53:41.878989"
-    },
-    {
-      "id": 12,
-      "userId": 3,
-      "productId": 110,
-      "quantity": 2,
-      "addedAt": "2026-02-12T06:53:41.878989"
-    },
-    {
-      "id": 13,
-      "userId": 7,
-      "productId": 51,
-      "quantity": 4,
-      "addedAt": "2026-02-12T06:53:41.878989"
-    },
-    {
-      "id": 14,
-      "userId": 7,
-      "productId": 56,
-      "quantity": 3,
-      "addedAt": "2026-02-11T12:53:41.878989"
-    },
-    {
-      "id": 15,
-      "userId": 11,
-      "productId": 61,
-      "quantity": 5,
-      "addedAt": "2026-02-10T11:53:41.878989"
-    },
-    {
-      "id": 1771258550638,
-      "userId": 2,
-      "productId": 5,
       "quantity": 1,
-      "addedAt": "2026-02-16T16:15:50.638Z",
+      "addedAt": "2026-06-19T00:33:10.733Z",
       "product": {
-        "id": 5,
-        "vendorId": 9,
-        "name": "Mais Blanc",
-        "slug": "mais-blanc",
-        "description": "Mais Blanc de qualite superieure, produit local du Burkina Faso. Ideal pour vos preparations culinaires et besoins quotidiens.",
+        "id": 4,
+        "vendorId": 3,
+        "name": "Sorgho Blanc",
+        "slug": "sorgho-blanc",
+        "description": "Sorgho Blanc de qualite superieure, produit local du Burkina Faso. Ideal pour vos preparations culinaires et besoins quotidiens.",
         "category": "Cereales & Graines",
         "subCategory": "Cereales",
-        "price": 15000,
-        "compareAtPrice": 17288,
-        "unit": "piece",
+        "price": 25000,
+        "compareAtPrice": null,
+        "unit": "litre",
         "images": [
           "https://images.unsplash.com/photo-1560493676-04071c5f467b?w=800&q=80",
           "https://images.unsplash.com/photo-1595855759920-86582396756a?w=800&q=80"
         ],
-        "stock": 453,
+        "stock": 489,
         "minOrder": 1,
-        "maxOrder": 47,
-        "rating": 4.5,
-        "reviewCount": 40,
-        "featured": true,
+        "maxOrder": 67,
+        "rating": 5,
+        "reviewCount": 190,
+        "featured": false,
         "tags": [
-          "certifie",
           "traditionnel"
         ],
         "attributes": {
-          "origin": "Dedougou",
-          "certification": "Ecocert"
+          "origin": "Kaya",
+          "certification": "Bio"
         },
         "isActive": true,
-        "createdAt": "2025-10-03T13:53:41.853996"
+        "createdAt": "2026-02-07T13:53:41.853996",
+        "vendor": {
+          "id": 3,
+          "userId": 10,
+          "shopName": "Karite d'Or",
+          "description": "Specialiste des produits locaux du Burkina Faso - Fruits & Legumes",
+          "logo": "https://i.pravatar.cc/200?img=33",
+          "banner": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1200&h=300&fit=crop",
+          "category": "Artisanat",
+          "rating": 4.9,
+          "reviewCount": 241,
+          "productCount": 47,
+          "verified": true,
+          "regionId": 7,
+          "location": {
+            "street": "Secteur 1",
+            "city": "Koudougou",
+            "region": "Centre",
+            "coordinates": {
+              "lat": 12.42,
+              "lng": -2.32
+            }
+          },
+          "contact": {
+            "phone": "+226 75 70 80 31",
+            "email": "contact@ouedraogo.bf",
+            "whatsapp": "+226 75 70 80 31"
+          },
+          "businessHours": {
+            "monday": "08:00-18:00",
+            "tuesday": "08:00-18:00",
+            "wednesday": "08:00-18:00",
+            "thursday": "08:00-18:00",
+            "friday": "08:00-18:00",
+            "saturday": "08:00-14:00",
+            "sunday": "Ferme"
+          },
+          "createdAt": "2025-03-21T13:53:41.850999"
+        }
       }
     },
     {
-      "id": 1771258738540,
-      "userId": 2,
-      "productId": 2,
+      "id": 1781829196297,
+      "userId": 5,
+      "productId": 9,
       "quantity": 1,
-      "addedAt": "2026-02-16T16:18:58.540Z",
+      "addedAt": "2026-06-19T00:33:16.297Z",
       "product": {
-        "id": 2,
+        "id": 9,
         "vendorId": 8,
-        "name": "Mil Blanc",
-        "slug": "mil-blanc",
-        "description": "Mil Blanc de qualite superieure, produit local du Burkina Faso. Ideal pour vos preparations culinaires et besoins quotidiens.",
+        "name": "Fonio Blanc",
+        "slug": "fonio-blanc",
+        "description": "Fonio Blanc de qualite superieure, produit local du Burkina Faso. Ideal pour vos preparations culinaires et besoins quotidiens.",
         "category": "Cereales & Graines",
         "subCategory": "Cereales",
-        "price": 800,
-        "compareAtPrice": null,
-        "unit": "sac",
+        "price": 1200,
+        "compareAtPrice": 1500,
+        "unit": "litre",
         "images": [
-          "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=800&q=80",
-          "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80"
+          "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80",
+          "https://images.unsplash.com/photo-1595855759920-86582396756a?w=800&q=80"
         ],
-        "stock": 122,
+        "stock": 144,
         "minOrder": 1,
-        "maxOrder": 40,
-        "rating": 4.5,
-        "reviewCount": 154,
-        "featured": true,
+        "maxOrder": 67,
+        "rating": 4.1,
+        "reviewCount": 186,
+        "featured": false,
         "tags": [
           "certifie",
-          "artisanal"
+          "frais",
+          "local"
         ],
         "attributes": {
-          "origin": "Tenkodogo",
-          "certification": null
+          "origin": "Ouahigouya",
+          "certification": "Ecocert"
         },
         "isActive": true,
-        "createdAt": "2025-11-10T13:53:41.853996"
+        "createdAt": "2026-01-31T13:53:41.853996",
+        "vendor": {
+          "id": 8,
+          "userId": 22,
+          "shopName": "Saveurs Locales",
+          "description": "Specialiste des produits locaux du Burkina Faso - Fruits & Legumes",
+          "logo": "https://i.pravatar.cc/200?img=38",
+          "banner": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1200&h=300&fit=crop",
+          "category": "Volaille & Oeufs",
+          "rating": 4.4,
+          "reviewCount": 209,
+          "productCount": 38,
+          "verified": true,
+          "regionId": 3,
+          "location": {
+            "street": "Secteur 10",
+            "city": "Kaya",
+            "region": "Centre",
+            "coordinates": {
+              "lat": 13.09,
+              "lng": -1.09
+            }
+          },
+          "contact": {
+            "phone": "+226 79 69 27 82",
+            "email": "contact@tapsoba.bf",
+            "whatsapp": "+226 79 69 27 82"
+          },
+          "businessHours": {
+            "monday": "08:00-18:00",
+            "tuesday": "08:00-18:00",
+            "wednesday": "08:00-18:00",
+            "thursday": "08:00-18:00",
+            "friday": "08:00-18:00",
+            "saturday": "08:00-14:00",
+            "sunday": "Ferme"
+          },
+          "createdAt": "2025-07-03T13:53:41.852997"
+        }
       }
     }
   ],
@@ -10127,6 +10418,83 @@
       "userId": 12,
       "productId": 10,
       "addedAt": "2026-01-18T13:53:41.877991"
+    },
+    {
+      "id": 1781828440101,
+      "userId": 5,
+      "productId": 25,
+      "addedAt": "2026-06-19T00:20:40.101Z",
+      "product": {
+        "id": 25,
+        "vendorId": 3,
+        "name": "Piments Verts",
+        "slug": "piments-verts",
+        "description": "Piments Verts de qualite superieure, produit local du Burkina Faso. Ideal pour vos preparations culinaires et besoins quotidiens.",
+        "category": "Fruits & Legumes",
+        "subCategory": "Fruits",
+        "price": 35000,
+        "compareAtPrice": null,
+        "unit": "sac",
+        "images": [
+          "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=800&q=80",
+          "https://images.unsplash.com/photo-1610832958506-aa56368176cf?w=800&q=80"
+        ],
+        "stock": 461,
+        "minOrder": 1,
+        "maxOrder": 84,
+        "rating": 4,
+        "reviewCount": 199,
+        "featured": false,
+        "tags": [
+          "artisanal",
+          "frais",
+          "certifie"
+        ],
+        "attributes": {
+          "origin": "Ouagadougou",
+          "certification": "Ecocert"
+        },
+        "isActive": true,
+        "createdAt": "2025-09-16T13:53:41.855996",
+        "vendor": {
+          "id": 3,
+          "userId": 10,
+          "shopName": "Karite d'Or",
+          "description": "Specialiste des produits locaux du Burkina Faso - Fruits & Legumes",
+          "logo": "https://i.pravatar.cc/200?img=33",
+          "banner": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1200&h=300&fit=crop",
+          "category": "Artisanat",
+          "rating": 4.9,
+          "reviewCount": 241,
+          "productCount": 47,
+          "verified": true,
+          "regionId": 7,
+          "location": {
+            "street": "Secteur 1",
+            "city": "Koudougou",
+            "region": "Centre",
+            "coordinates": {
+              "lat": 12.42,
+              "lng": -2.32
+            }
+          },
+          "contact": {
+            "phone": "+226 75 70 80 31",
+            "email": "contact@ouedraogo.bf",
+            "whatsapp": "+226 75 70 80 31"
+          },
+          "businessHours": {
+            "monday": "08:00-18:00",
+            "tuesday": "08:00-18:00",
+            "wednesday": "08:00-18:00",
+            "thursday": "08:00-18:00",
+            "friday": "08:00-18:00",
+            "saturday": "08:00-14:00",
+            "sunday": "Ferme"
+          },
+          "createdAt": "2025-03-21T13:53:41.850999"
+        }
+      }
     }
   ],
   "notifications": [

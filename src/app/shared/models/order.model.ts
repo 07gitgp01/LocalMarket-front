@@ -68,8 +68,8 @@ export interface Order {
     paymentStatus: string; // 'pending' | 'paid' | 'failed'
     transactionId?: string;
 
-    shippingAddress: Address;
-    billingAddress?: Address; // Si différent
+    shippingAddress?: Address;
+    billingAddress?: Address;
 
     notes?: string;
     estimatedDeliveryDate?: string;

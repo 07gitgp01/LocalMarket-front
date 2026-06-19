@@ -7,6 +7,8 @@ export interface Region {
     name: string;
     code: string;
     capital: string;
+    population?: number;
+    area?: number;
     provinces?: string[];
     coordinates?: { lat: number; lng: number };
     deliveryZone?: string[];

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
@@ -9,12 +9,30 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule, MatDialog, MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 import { OrderService } from '@core/services/order.service';
+import { CartService } from '@core/services/cart.service';
 import { Order } from '@shared/models/order.model';
 import { LoadingSpinnerComponent } from '@shared/components/loading-spinner/loading-spinner.component';
 import { NotificationService } from '@core/services/notification.service';
+
+@Component({
+  selector: 'app-order-confirm-dialog',
+  standalone: true,
+  imports: [MatButtonModule, MatDialogModule],
+  template: `
+    <h2 mat-dialog-title>{{ data.title }}</h2>
+    <mat-dialog-content><p>{{ data.message }}</p></mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Annuler</button>
+      <button mat-flat-button color="warn" [mat-dialog-close]="true">Confirmer</button>
+    </mat-dialog-actions>
+  `
+})
+export class OrderConfirmDialogComponent {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { title: string; message: string }) {}
+}
 
 @Component({
   selector: 'app-order-detail',
@@ -257,16 +275,16 @@ import { NotificationService } from '@core/services/notification.service';
                 Adresse de livraison
               </h2>
               <div class="bg-gray-50 rounded-lg p-4">
-                <p class="text-gray-900 font-medium mb-1">{{ order.shippingAddress.fullName || 'Client' }}</p>
+                <p class="text-gray-900 font-medium mb-1">{{ order.shippingAddress?.fullName || 'Client' }}</p>
                 <p class="text-gray-600 leading-relaxed">
-                  {{ order.shippingAddress.street }}<br>
-                  {{ order.shippingAddress.city }}, {{ order.shippingAddress.region }}<br>
-                  {{ order.shippingAddress.postalCode }}<br>
-                  {{ order.shippingAddress.country }}
+                  {{ order.shippingAddress?.street }}<br>
+                  {{ order.shippingAddress?.city }}, {{ order.shippingAddress?.region }}<br>
+                  {{ order.shippingAddress?.postalCode }}<br>
+                  {{ order.shippingAddress?.country }}
                 </p>
                 <div class="flex items-center gap-2 mt-3 text-sm text-gray-600">
                   <mat-icon class="text-[18px]">phone</mat-icon>
-                  <span>{{ order.shippingAddress.phone || '+226 70 00 00 00' }}</span>
+                  <span>{{ order.shippingAddress?.phone || '+226 70 00 00 00' }}</span>
                 </div>
               </div>
             </mat-card-content>
@@ -357,7 +375,9 @@ export class OrderDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private orderService: OrderService,
-    private notification: NotificationService
+    private notification: NotificationService,
+    private cartService: CartService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -400,27 +420,43 @@ export class OrderDetailComponent implements OnInit {
   }
 
   reorder() {
-    if (this.order) {
-      this.notification.success('Articles ajoutés au panier!');
+    if (!this.order) return;
+    let addedCount = 0;
+    this.order.items.forEach(item => {
+      if (item.product) {
+        this.cartService.addToCart(item.product, item.quantity);
+        addedCount++;
+      }
+    });
+    if (addedCount > 0) {
+      this.notification.success(`${addedCount} article(s) ajouté(s) au panier !`);
       this.router.navigate(['/cart']);
-      // TODO: Add order items to cart
+    } else {
+      this.notification.warning('Impossible de récupérer les articles de cette commande.');
     }
   }
 
   cancelOrder() {
-    if (this.order && confirm('Êtes-vous sûr de vouloir annuler cette commande ?')) {
-      this.orderService.updateOrderStatus(this.order.id, 'cancelled').subscribe({
-        next: () => {
-          this.notification.success('Commande annulée avec succès');
-          if (this.order) {
-            this.order.status = 'cancelled';
+    if (!this.order) return;
+    this.dialog.open(OrderConfirmDialogComponent, {
+      data: {
+        title: 'Annuler la commande',
+        message: `Êtes-vous sûr de vouloir annuler la commande ${this.order.orderNumber} ? Cette action est irréversible.`
+      },
+      width: '400px'
+    }).afterClosed().subscribe(confirmed => {
+      if (confirmed && this.order) {
+        this.orderService.updateOrderStatus(this.order.id, 'cancelled').subscribe({
+          next: () => {
+            this.notification.success('Commande annulée avec succès');
+            if (this.order) this.order.status = 'cancelled';
+          },
+          error: () => {
+            this.notification.error('Erreur lors de l\'annulation');
           }
-        },
-        error: () => {
-          this.notification.error('Erreur lors de l\'annulation');
-        }
-      });
-    }
+        });
+      }
+    });
   }
 
   canCancelOrder(): boolean {

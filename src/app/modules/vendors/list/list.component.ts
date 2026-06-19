@@ -1,6 +1,7 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,6 +13,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 import { VendorService } from '@core/services/vendor.service';
+import { NotificationService } from '@core/services/notification.service';
 import { Vendor } from '@shared/models/product.model';
 
 @Component({
@@ -136,7 +138,7 @@ import { Vendor } from '@shared/models/product.model';
                 </div>
 
                 <div class="vendor-actions">
-                  <button mat-flat-button color="primary" class="visit-btn">
+                  <button mat-flat-button color="primary" class="visit-btn" (click)="visitVendor(vendor)">
                     <mat-icon>store</mat-icon>
                     Visiter la boutique
                   </button>
@@ -529,6 +531,8 @@ import { Vendor } from '@shared/models/product.model';
 })
 export class VendorListComponent implements OnInit {
     private vendorService = inject(VendorService);
+    private router = inject(Router);
+    private notification = inject(NotificationService);
 
     vendors = signal<Vendor[]>([]);
     filteredVendors = signal<Vendor[]>([]);
@@ -594,5 +598,12 @@ export class VendorListComponent implements OnInit {
         this.searchControl.setValue('');
         this.regionControl.setValue('');
         this.categoryControl.setValue('');
+    }
+
+    visitVendor(vendor: Vendor) {
+        this.notification.info(`Boutique de ${vendor.shopName}`);
+        this.router.navigate(['/products'], {
+            queryParams: { vendorId: vendor.id, vendorName: vendor.shopName }
+        });
     }
 }

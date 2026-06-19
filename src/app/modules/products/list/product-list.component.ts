@@ -197,6 +197,28 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
           <!-- Products Section -->
           <div class="products-section">
             
+            <!-- Mobile Filter Overlay -->
+            <div class="mobile-filter-overlay" *ngIf="mobileFiltersOpen" (click)="mobileFiltersOpen = false"></div>
+            <div class="mobile-filter-panel" [class.open]="mobileFiltersOpen">
+              <div class="mobile-filter-header">
+                <h3>Catégories</h3>
+                <button mat-icon-button (click)="mobileFiltersOpen = false"><mat-icon>close</mat-icon></button>
+              </div>
+              <div class="mobile-filter-body">
+                <a routerLink="/products" class="mf-item" [class.active]="!currentCategory" (click)="categoryControl.setValue(null); mobileFiltersOpen = false">
+                  <span>Tous les produits</span>
+                  <mat-icon>chevron_right</mat-icon>
+                </a>
+                <a *ngFor="let cat of categories"
+                   class="mf-item"
+                   [class.active]="currentCategory === cat.name"
+                   (click)="categoryControl.setValue(cat.name); mobileFiltersOpen = false">
+                  <span>{{ cat.name }}</span>
+                  <mat-icon>chevron_right</mat-icon>
+                </a>
+              </div>
+            </div>
+
             <!-- Section Header -->
             <div class="section-header">
               <div class="section-title">
@@ -204,6 +226,9 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
                 <p>{{ filteredCount }} produits disponibles</p>
               </div>
               <div class="section-actions">
+                <button mat-stroked-button class="mobile-filter-btn" (click)="mobileFiltersOpen = true">
+                  <mat-icon>tune</mat-icon> Filtres
+                </button>
                 <mat-form-field appearance="outline" class="sort-select">
                   <mat-select [formControl]="sortControl" placeholder="Trier par">
                     <mat-option value="popularity">Populaire</mat-option>
@@ -223,6 +248,16 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
                 </div>
               </div>
             </div>
+
+            <!-- Search Bar -->
+            <mat-form-field appearance="outline" style="width:100%;margin-bottom:1rem">
+              <mat-label>Rechercher un produit...</mat-label>
+              <mat-icon matPrefix>search</mat-icon>
+              <input matInput [formControl]="searchControl" placeholder="Nom, description, tags...">
+              <button *ngIf="searchControl.value" matSuffix mat-icon-button (click)="searchControl.setValue('')" type="button">
+                <mat-icon>close</mat-icon>
+              </button>
+            </mat-form-field>
 
             <!-- Loading -->
             <div *ngIf="isLoading" class="loading-state">
@@ -304,6 +339,12 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
       font-weight: 800;
       margin: 0 0 1rem 0;
       line-height: 1.2;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h1 { font-size: 1.75rem; }
+      .hero-text p { font-size: 0.95rem; margin-bottom: 1.25rem; }
+      .promo-badge { font-size: 0.8rem; }
     }
 
     .hero-text .highlight {
@@ -664,6 +705,98 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
       color: #9ca3af;
       margin-top: 1rem;
     }
+
+    /* Mobile Filter Button */
+    .mobile-filter-btn {
+      display: none;
+    }
+
+    @media (max-width: 1024px) {
+      .mobile-filter-btn { display: inline-flex; }
+      .sort-select { width: 150px; }
+      .products-section { padding: 1rem; }
+      .promo-cards { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .promo-cards { grid-template-columns: 1fr; }
+      .section-actions { flex-wrap: wrap; }
+      .sort-select { width: 100%; }
+    }
+
+    /* Mobile Filter Overlay */
+    .mobile-filter-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      z-index: 1000;
+    }
+
+    .mobile-filter-panel {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100vh;
+      background: white;
+      z-index: 1001;
+      transition: right 0.3s ease;
+      overflow-y: auto;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .mobile-filter-panel.open {
+      right: 0;
+    }
+
+    .mobile-filter-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid #e5e7eb;
+      background: #10b981;
+      color: white;
+    }
+
+    .mobile-filter-header h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .mobile-filter-header button {
+      color: white;
+    }
+
+    .mobile-filter-body { padding: 0.5rem 0; }
+
+    .mf-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.875rem 1.5rem;
+      color: #374151;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #f3f4f6;
+    }
+
+    .mf-item:hover,
+    .mf-item.active {
+      background: #f0fdf4;
+      color: #10b981;
+      font-weight: 600;
+    }
+
+    .mf-item mat-icon {
+      font-size: 18px;
+      width: 18px;
+      height: 18px;
+      color: #9ca3af;
+    }
   `]
 })
 export class ProductListComponent implements OnInit {
@@ -674,6 +807,7 @@ export class ProductListComponent implements OnInit {
 
   // State
   products: Product[] = [];
+  allProducts: Product[] = [];
   categories: Category[] = [];
   isLoading = false;
   isLoadingMore = false;
@@ -683,6 +817,7 @@ export class ProductListComponent implements OnInit {
   viewMode: 'grid' | 'list' = 'grid';
   isDesktop = window.innerWidth >= 768;
   hasActiveFilters = false;
+  mobileFiltersOpen = false;
 
   // Form Controls
   searchControl = new FormControl('');
@@ -696,6 +831,15 @@ export class ProductListComponent implements OnInit {
     this.loadCategories();
     this.loadProducts();
     this.setupFilters();
+    this.route.queryParams.subscribe(params => {
+      if (params['search']) this.searchControl.setValue(params['search']);
+      if (params['category']) this.categoryControl.setValue(params['category']);
+      if (params['vendorId']) {
+        // Store vendorId filter for use in applyFilters
+        (this as any)._vendorIdFilter = parseInt(params['vendorId']);
+      }
+      this.applyFilters();
+    });
   }
 
   private loadCategories() {
@@ -708,10 +852,12 @@ export class ProductListComponent implements OnInit {
     this.isLoading = true;
     this.productService.getProducts().subscribe({
       next: (products) => {
+        this.allProducts = products;
         this.products = products;
         this.filteredCount = products.length;
         this.totalProducts = products.length;
         this.isLoading = false;
+        this.applyFilters();
       },
       error: () => {
         this.isLoading = false;
@@ -729,12 +875,51 @@ export class ProductListComponent implements OnInit {
   }
 
   private applyFilters() {
-    // Filter logic here
-    this.hasActiveFilters = !!(
-      this.searchControl.value ||
-      this.categoryControl.value ||
-      this.featuredControl.value
-    );
+    if (!this.allProducts.length) return;
+
+    let filtered = [...this.allProducts];
+
+    const search = this.searchControl.value?.toLowerCase().trim();
+    if (search) {
+      filtered = filtered.filter(p =>
+        p.name.toLowerCase().includes(search) ||
+        p.description.toLowerCase().includes(search) ||
+        (p.tags || []).some(t => t.toLowerCase().includes(search))
+      );
+    }
+
+    const category = this.categoryControl.value;
+    if (category) {
+      filtered = filtered.filter(p => p.category === category);
+      this.currentCategory = category;
+    } else {
+      this.currentCategory = null;
+    }
+
+    const minPrice = this.minPriceControl.value ?? 0;
+    const maxPrice = this.maxPriceControl.value ?? 999999;
+    filtered = filtered.filter(p => p.price >= minPrice && p.price <= maxPrice);
+
+    if (this.featuredControl.value) {
+      filtered = filtered.filter(p => p.featured === true);
+    }
+
+    const vendorId = (this as any)._vendorIdFilter;
+    if (vendorId) {
+      filtered = filtered.filter(p => p.vendorId === vendorId);
+    }
+
+    switch (this.sortControl.value) {
+      case 'price_asc':  filtered.sort((a, b) => a.price - b.price); break;
+      case 'price_desc': filtered.sort((a, b) => b.price - a.price); break;
+      case 'newest':     filtered.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()); break;
+      case 'rating':     filtered.sort((a, b) => b.rating - a.rating); break;
+      case 'popularity': filtered.sort((a, b) => (b.reviewCount || 0) - (a.reviewCount || 0)); break;
+    }
+
+    this.products = filtered;
+    this.filteredCount = filtered.length;
+    this.hasActiveFilters = !!(search || category || this.featuredControl.value || vendorId);
   }
 
   resetFilters() {
@@ -744,6 +929,8 @@ export class ProductListComponent implements OnInit {
     this.maxPriceControl.setValue(50000);
     this.featuredControl.setValue(false);
     this.sortControl.setValue('popularity');
+    (this as any)._vendorIdFilter = null;
+    this.applyFilters();
   }
 
   loadMore() {
