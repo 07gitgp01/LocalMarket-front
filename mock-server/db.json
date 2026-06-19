@@ -8368,164 +8368,79 @@
       },
       "createdAt": "2026-06-18T20:10:32.559Z",
       "id": 62
-    }
-  ],
-  "cart": [
-    {
-      "id": 1781829190733,
-      "userId": 5,
-      "productId": 4,
-      "quantity": 1,
-      "addedAt": "2026-06-19T00:33:10.733Z",
-      "product": {
-        "id": 4,
-        "vendorId": 3,
-        "name": "Sorgho Blanc",
-        "slug": "sorgho-blanc",
-        "description": "Sorgho Blanc de qualite superieure, produit local du Burkina Faso. Ideal pour vos preparations culinaires et besoins quotidiens.",
-        "category": "Cereales & Graines",
-        "subCategory": "Cereales",
-        "price": 25000,
-        "compareAtPrice": null,
-        "unit": "litre",
-        "images": [
-          "https://images.unsplash.com/photo-1560493676-04071c5f467b?w=800&q=80",
-          "https://images.unsplash.com/photo-1595855759920-86582396756a?w=800&q=80"
-        ],
-        "stock": 489,
-        "minOrder": 1,
-        "maxOrder": 67,
-        "rating": 5,
-        "reviewCount": 190,
-        "featured": false,
-        "tags": [
-          "traditionnel"
-        ],
-        "attributes": {
-          "origin": "Kaya",
-          "certification": "Bio"
-        },
-        "isActive": true,
-        "createdAt": "2026-02-07T13:53:41.853996",
-        "vendor": {
-          "id": 3,
-          "userId": 10,
-          "shopName": "Karite d'Or",
-          "description": "Specialiste des produits locaux du Burkina Faso - Fruits & Legumes",
-          "logo": "https://i.pravatar.cc/200?img=33",
-          "banner": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1200&h=300&fit=crop",
-          "category": "Artisanat",
-          "rating": 4.9,
-          "reviewCount": 241,
-          "productCount": 47,
-          "verified": true,
-          "regionId": 7,
-          "location": {
-            "street": "Secteur 1",
-            "city": "Koudougou",
-            "region": "Centre",
-            "coordinates": {
-              "lat": 12.42,
-              "lng": -2.32
-            }
-          },
-          "contact": {
-            "phone": "+226 75 70 80 31",
-            "email": "contact@ouedraogo.bf",
-            "whatsapp": "+226 75 70 80 31"
-          },
-          "businessHours": {
-            "monday": "08:00-18:00",
-            "tuesday": "08:00-18:00",
-            "wednesday": "08:00-18:00",
-            "thursday": "08:00-18:00",
-            "friday": "08:00-18:00",
-            "saturday": "08:00-14:00",
-            "sunday": "Ferme"
-          },
-          "createdAt": "2025-03-21T13:53:41.850999"
-        }
-      }
     },
     {
-      "id": 1781829196297,
       "userId": 5,
-      "productId": 9,
-      "quantity": 1,
-      "addedAt": "2026-06-19T00:33:16.297Z",
-      "product": {
-        "id": 9,
-        "vendorId": 8,
-        "name": "Fonio Blanc",
-        "slug": "fonio-blanc",
-        "description": "Fonio Blanc de qualite superieure, produit local du Burkina Faso. Ideal pour vos preparations culinaires et besoins quotidiens.",
-        "category": "Cereales & Graines",
-        "subCategory": "Cereales",
-        "price": 1200,
-        "compareAtPrice": 1500,
-        "unit": "litre",
-        "images": [
-          "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=800&q=80",
-          "https://images.unsplash.com/photo-1595855759920-86582396756a?w=800&q=80"
-        ],
-        "stock": 144,
-        "minOrder": 1,
-        "maxOrder": 67,
-        "rating": 4.1,
-        "reviewCount": 186,
-        "featured": false,
-        "tags": [
-          "certifie",
-          "frais",
-          "local"
-        ],
-        "attributes": {
-          "origin": "Ouahigouya",
-          "certification": "Ecocert"
+      "orderNumber": "ORD-1781879295011",
+      "status": "pending",
+      "items": [
+        {
+          "productId": 4,
+          "quantity": 1,
+          "price": 25000,
+          "total": 25000,
+          "name": "Sorgho Blanc",
+          "vendorId": 3
         },
-        "isActive": true,
-        "createdAt": "2026-01-31T13:53:41.853996",
-        "vendor": {
-          "id": 8,
-          "userId": 22,
-          "shopName": "Saveurs Locales",
-          "description": "Specialiste des produits locaux du Burkina Faso - Fruits & Legumes",
-          "logo": "https://i.pravatar.cc/200?img=38",
-          "banner": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1200&h=300&fit=crop",
-          "category": "Volaille & Oeufs",
-          "rating": 4.4,
-          "reviewCount": 209,
-          "productCount": 38,
-          "verified": true,
-          "regionId": 3,
-          "location": {
-            "street": "Secteur 10",
-            "city": "Kaya",
-            "region": "Centre",
-            "coordinates": {
-              "lat": 13.09,
-              "lng": -1.09
-            }
-          },
-          "contact": {
-            "phone": "+226 79 69 27 82",
-            "email": "contact@tapsoba.bf",
-            "whatsapp": "+226 79 69 27 82"
-          },
-          "businessHours": {
-            "monday": "08:00-18:00",
-            "tuesday": "08:00-18:00",
-            "wednesday": "08:00-18:00",
-            "thursday": "08:00-18:00",
-            "friday": "08:00-18:00",
-            "saturday": "08:00-14:00",
-            "sunday": "Ferme"
-          },
-          "createdAt": "2025-07-03T13:53:41.852997"
+        {
+          "productId": 9,
+          "quantity": 1,
+          "price": 1200,
+          "total": 1200,
+          "name": "Fonio Blanc",
+          "vendorId": 8
         }
-      }
+      ],
+      "subtotal": 26200,
+      "shippingCost": 1000,
+      "tax": 0,
+      "discount": 0,
+      "total": 27200,
+      "paymentMethod": "cash_on_delivery",
+      "paymentStatus": "pending",
+      "shippingAddress": {
+        "street": "eeeeeeeeeee",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "00000",
+        "country": "Burkina Faso"
+      },
+      "createdAt": "2026-06-19T14:28:15.011Z",
+      "id": 63
+    },
+    {
+      "userId": 5,
+      "orderNumber": "ORD-1781881397610",
+      "status": "pending",
+      "items": [
+        {
+          "productId": 86,
+          "quantity": 1,
+          "price": 1500,
+          "total": 1500,
+          "name": "Masque Cheveux Karite",
+          "vendorId": 9
+        }
+      ],
+      "subtotal": 1500,
+      "shippingCost": 1000,
+      "tax": 0,
+      "discount": 0,
+      "total": 2500,
+      "paymentMethod": "orange_money",
+      "paymentStatus": "pending",
+      "shippingAddress": {
+        "street": "zzz",
+        "city": "Ouagadougou",
+        "region": "Centre",
+        "postalCode": "00000",
+        "country": "Burkina Faso"
+      },
+      "createdAt": "2026-06-19T15:03:17.610Z",
+      "id": 64
     }
   ],
+  "cart": [],
   "reviews": [
     {
       "id": 1,
@@ -10493,6 +10408,83 @@
             "sunday": "Ferme"
           },
           "createdAt": "2025-03-21T13:53:41.850999"
+        }
+      }
+    },
+    {
+      "id": 1781881300767,
+      "userId": 5,
+      "productId": 86,
+      "addedAt": "2026-06-19T15:01:40.767Z",
+      "product": {
+        "id": 86,
+        "vendorId": 9,
+        "name": "Masque Cheveux Karite",
+        "slug": "masque-cheveux-karite",
+        "description": "Masque Cheveux Karite de qualite superieure, produit local du Burkina Faso. Ideal pour vos preparations culinaires et besoins quotidiens.",
+        "category": "Karite & Produits Cosmetiques",
+        "subCategory": "Karite",
+        "price": 1500,
+        "compareAtPrice": 1800,
+        "unit": "kg",
+        "images": [
+          "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=800&q=80",
+          "https://images.unsplash.com/photo-1571875257727-256c39da42af?w=800&q=80"
+        ],
+        "stock": 138,
+        "minOrder": 1,
+        "maxOrder": 29,
+        "rating": 4.8,
+        "reviewCount": 199,
+        "featured": true,
+        "tags": [
+          "traditionnel",
+          "frais",
+          "certifie"
+        ],
+        "attributes": {
+          "origin": "Ouagadougou",
+          "certification": null
+        },
+        "isActive": true,
+        "createdAt": "2025-06-19T13:53:41.859992",
+        "vendor": {
+          "id": 9,
+          "userId": 24,
+          "shopName": "Artisans du Sahel",
+          "description": "Specialiste des produits locaux du Burkina Faso - Boissons Traditionnelles",
+          "logo": "https://i.pravatar.cc/200?img=39",
+          "banner": "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=1200&h=300&fit=crop",
+          "category": "Volaille & Oeufs",
+          "rating": 4.6,
+          "reviewCount": 223,
+          "productCount": 36,
+          "verified": true,
+          "regionId": 1,
+          "location": {
+            "street": "Secteur 1",
+            "city": "Koudougou",
+            "region": "Centre-Ouest",
+            "coordinates": {
+              "lat": 12.365,
+              "lng": -2.362
+            }
+          },
+          "contact": {
+            "phone": "+226 76 44 48 68",
+            "email": "contact@sana.bf",
+            "whatsapp": "+226 76 44 48 68"
+          },
+          "businessHours": {
+            "monday": "08:00-18:00",
+            "tuesday": "08:00-18:00",
+            "wednesday": "08:00-18:00",
+            "thursday": "08:00-18:00",
+            "friday": "08:00-18:00",
+            "saturday": "08:00-14:00",
+            "sunday": "Ferme"
+          },
+          "createdAt": "2025-06-20T13:53:41.852997"
         }
       }
     }
